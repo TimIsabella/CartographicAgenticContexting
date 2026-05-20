@@ -2,70 +2,41 @@
 
 **Context Cartography** is a system for organizing and resolving agent context in software repositories.
 
-Instead of treating repository instructions as one large prompt, Context Cartography separates context into four distinct concepts:
+Instead of treating repository instructions as one large prompt, Context Cartography separates context into four related artifacts:
 
 ```text
-Context Tree  = where context exists
-Context Route = how to move downward through the tree
-Context Map   = what context is needed for a specific operating context
-Context Atlas = where existing maps are indexed
+Context Tree  = the topography of the project itself
+Context Map   = an individual collection of reference pointers across the tree
+Context Atlas = the index of existing Context Maps
+Context Route = a predefined hierarchical or mapped route through the project
 ```
 
 The goal is to help agents operate with the **smallest sufficient context**: enough information to work coherently in the current context, without loading unrelated instructions, architecture notes, examples, or validation steps.
 
 ## Concept boundaries
 
-Each concept has one job.
+Each concept has a distinct role and file representation.
 
-| Concept | Job | Does not do |
-| --- | --- | --- |
-| **Context Tree** | Defines the durable hierarchy of scoped context files. | Does not decide what to load for a task. |
-| **Context Route** | Defines directions down the tree from broader context to narrower context. | Does not select unrelated cross-scope references. |
-| **Context Map** | Selects the references needed for one operating context. | Does not define the permanent repository hierarchy. |
-| **Context Atlas** | Indexes existing Context Maps. | Does not replace the tree or generate maps by itself. |
+| Concept | Role | Representation | Required? |
+| --- | --- | --- | --- |
+| **Context Tree** | The topography of the project itself; the hierarchy of context. | The totality of all `AGENTS.md` files containing location-aware metadata. | Yes, when using Context Cartography. |
+| **Context Map** | An individual collection of reference pointers across the tree. | `AGENTS.map.*.md` | No. Created by necessity. |
+| **Context Atlas** | The index of existing Context Maps. | `AGENTS.atlas.md` | No. Useful when maps exist. |
+| **Context Route** | A predefined hierarchical or mapped route through the project. | `AGENTS.route.*.md` | No. Created by necessity. |
 
 ## Core Concepts
 
 ### Context Tree
 
-A **Context Tree** is the persistent hierarchy of scoped `AGENTS.md` files in a repository.
+A **Context Tree** is the topography of the project itself: the hierarchy of context across the repository.
 
-Each node defines context for one repository scope:
+It is represented by the totality of all `AGENTS.md` files that contain the necessary location-aware metadata.
 
-- the root node defines global project context;
-- branch nodes define local architecture, conventions, and commands;
-- leaf nodes define tactical rules, examples, and validation steps for a specific area.
+Each `AGENTS.md` file defines context for one repository location:
 
-```text
-Root AGENTS.md
-  → Branch AGENTS.md
-    → Leaf AGENTS.md
-```
-
-The tree answers:
-
-```text
-What scoped context references exist?
-How are those references arranged by scope and inheritance?
-```
-
-The tree is the durable structure. It is not the set of context an agent should load for every task.
-
-### Context Route
-
-A **Context Route** is a defined set of directions down the Context Tree.
-
-A route starts at a broader node and follows child references toward a narrower node. It describes descent through the tree.
-
-A route answers:
-
-```text
-Where does traversal start?
-Which child reference is followed next?
-Where does traversal stop?
-```
-
-Example:
+- the root file defines global project context;
+- branch files define local architecture, conventions, and commands;
+- leaf files define tactical rules, examples, and validation steps for a specific area.
 
 ```text
 /AGENTS.md
@@ -73,55 +44,75 @@ Example:
     → /apps/api/src/auth/AGENTS.md
 ```
 
-A route is not a Context Map. It only defines how to move down the tree. Cross-scope references can be selected by a map, but they are not part of a single downward route unless they are reached through child references in the tree.
+The Context Tree answers:
+
+```text
+What contextual locations exist in this project?
+How are those locations arranged by scope, inheritance, and containment?
+```
+
+The tree is not a generated artifact. It is the project’s contextual topography as expressed through `AGENTS.md` files.
 
 ### Context Map
 
-A **Context Map** is a contextual selection of references needed for one operating context.
+A **Context Map** is an individual collection of reference pointers.
 
-A map may include:
+A map points across the Context Tree. It is not restricted to hierarchy and does not need to follow only parent-child relationships.
 
-- one route down the tree;
-- multiple routes down different branches;
-- related references that are needed because the current work crosses scopes.
+A map is not required. It is created only when a particular operating context needs an explicit collection of references.
 
-The map answers:
+A Context Map is represented as an individual file named:
 
 ```text
-Which context references are needed right now?
-Why are they relevant?
-Which route or routes lead to them?
-Which related references should also be loaded?
+AGENTS.map.*.md
 ```
 
-A map is contextual. It can change from task to task without changing the tree.
-
-Example of a map for work in `apps/api/src/auth/`:
+Examples:
 
 ```text
-selected:
+AGENTS.map.auth.md
+AGENTS.map.release.md
+AGENTS.map.billing-migration.md
+```
+
+A map answers:
+
+```text
+Which context references are needed for this operating context?
+Why are these references grouped together?
+What parts of the tree does this context point across?
+```
+
+Example map contents:
+
+```text
+# AGENTS.map.auth.md
+
+references:
   - /AGENTS.md
   - /apps/api/AGENTS.md
   - /apps/api/src/auth/AGENTS.md
   - /packages/db/AGENTS.md
-
-routes:
-  - /AGENTS.md → /apps/api/AGENTS.md → /apps/api/src/auth/AGENTS.md
-
-related:
-  - /packages/db/AGENTS.md
+  - /packages/observability/AGENTS.md
 ```
 
-The route explains how the agent reaches the auth context. The related database reference is included because the current operating context needs it, not because it belongs to the auth branch.
+The references may point down one branch, across multiple branches, or into related areas of the project. The map is a contextual collection, not a new hierarchy.
 
 ### Context Atlas
 
-A **Context Atlas** is an index of existing Context Maps.
+A **Context Atlas** is the index of existing Context Maps.
 
-The atlas helps agents discover maps that have already been defined or generated. It does not define tree structure and does not decide context by itself.
+It is represented as an individual file named:
+
+```text
+AGENTS.atlas.md
+```
+
+The atlas does not replace the Context Tree and does not define context by itself. It exists to make previously defined maps discoverable.
 
 An atlas may index maps by:
 
+- map filename;
 - repository area;
 - task type;
 - operating context;
@@ -134,33 +125,109 @@ The atlas answers:
 
 ```text
 Which Context Maps already exist?
-What operating context is each map for?
+What is each map for?
 When should an existing map be reused, updated, or ignored?
 ```
 
-An agent consults the atlas when it wants to reuse an existing map instead of generating a new one.
+Example atlas contents:
+
+```text
+# AGENTS.atlas.md
+
+maps:
+  - file: AGENTS.map.auth.md
+    context: authentication work
+    references:
+      - /apps/api/src/auth/AGENTS.md
+      - /packages/db/AGENTS.md
+
+  - file: AGENTS.map.release.md
+    context: release preparation
+    references:
+      - /AGENTS.md
+      - /apps/web/AGENTS.md
+      - /apps/api/AGENTS.md
+```
+
+The atlas is useful when a repository has multiple maps. A small repository may not need one.
+
+### Context Route
+
+A **Context Route** is a predefined hierarchical or mapped route through the project.
+
+A route may describe a path down the Context Tree, or it may describe a predefined route through references selected by a Context Map.
+
+A route is not required. It is created only when a repeated navigation path should be made explicit.
+
+A Context Route is represented as an individual file named:
+
+```text
+AGENTS.route.*.md
+```
+
+Examples:
+
+```text
+AGENTS.route.auth.md
+AGENTS.route.release.md
+AGENTS.route.incident-response.md
+```
+
+A route answers:
+
+```text
+What path should an agent follow through the project?
+Which context reference comes first?
+Which references come next?
+Where does the route end?
+```
+
+Example hierarchical route:
+
+```text
+# AGENTS.route.auth.md
+
+route:
+  - /AGENTS.md
+  - /apps/api/AGENTS.md
+  - /apps/api/src/auth/AGENTS.md
+```
+
+Example mapped route:
+
+```text
+# AGENTS.route.auth-observability.md
+
+route:
+  - /AGENTS.md
+  - /apps/api/AGENTS.md
+  - /apps/api/src/auth/AGENTS.md
+  - /packages/db/AGENTS.md
+  - /packages/observability/AGENTS.md
+```
+
+The route is about order and navigation. The map is about the collection of references. The atlas is about indexing maps.
 
 ## How the concepts work together
 
 A typical resolution flow is:
 
 ```text
-1. Check the Context Atlas for an existing map.
-2. If a sufficient map exists, use it.
-3. If not, inspect the Context Tree.
-4. Follow Context Routes down the tree toward the relevant scope.
-5. Add related references only when the operating context requires them.
-6. Produce a Context Map.
-7. Load only the references selected by that map.
+1. Read the Context Tree from available AGENTS.md files.
+2. Check AGENTS.atlas.md if an atlas exists.
+3. Reuse an existing AGENTS.map.*.md if it matches the operating context.
+4. Create a new Context Map only when an explicit reference collection is needed.
+5. Follow an AGENTS.route.*.md file only when a predefined route exists and is relevant.
+6. Load only the context references needed for the current operating context.
 ```
 
 The responsibilities stay separate:
 
 ```text
-Tree  → structure
-Route → directions
-Map   → task-specific selection
-Atlas → map index
+Tree  → project topography and hierarchy
+Map   → reference pointer collection
+Atlas → index of existing maps
+Route → predefined navigation path
 ```
 
 ## Governing Principle
@@ -180,7 +247,9 @@ Context should be inherited downward, not duplicated downward. Child files shoul
 
 ## File Structure
 
-The standard filename should remain:
+### Context Tree files
+
+The standard file for tree nodes is:
 
 ```text
 AGENTS.md
@@ -188,7 +257,7 @@ AGENTS.md
 
 This preserves compatibility with existing agent tooling.
 
-The file's role in the Context Tree should be declared inside the file using metadata:
+Each `AGENTS.md` file should contain location-aware metadata that describes its role in the Context Tree:
 
 ```yaml
 ---
@@ -200,16 +269,58 @@ related: [...]
 ---
 ```
 
-The metadata describes a tree node and its durable relationships. It does not define a Context Map.
+The metadata describes a tree node and its durable relationships.
 
-`children` lists immediate tree descendants. `extends` identifies the parent context that this node inherits from. `related` exposes durable cross-scope references that may be useful, but those references are loaded only when a Context Map selects them for the current operating context.
+`children` lists immediate tree descendants. `extends` identifies the parent context that this node inherits from. `related` exposes durable cross-scope references that may be useful, but those references are loaded only when selected by the current operating context, a Context Map, or a Context Route.
 
 The metadata is for parsing.  
 The heading is for humans.
 
+### Context Map files
+
+Context Maps are represented as:
+
+```text
+AGENTS.map.*.md
+```
+
+The wildcard should identify the operating context or purpose of the map.
+
+```text
+AGENTS.map.auth.md
+AGENTS.map.release.md
+AGENTS.map.billing-migration.md
+```
+
+### Context Atlas file
+
+A Context Atlas is represented as:
+
+```text
+AGENTS.atlas.md
+```
+
+A repository should generally have at most one atlas per indexing scope.
+
+### Context Route files
+
+Context Routes are represented as:
+
+```text
+AGENTS.route.*.md
+```
+
+The wildcard should identify the route purpose.
+
+```text
+AGENTS.route.auth.md
+AGENTS.route.release.md
+AGENTS.route.incident-response.md
+```
+
 ## Example
 
-### Root file
+### Root tree node
 
 ```md
 ---
@@ -227,7 +338,7 @@ related: []
 Rules: use pnpm, keep changes small, run relevant tests.
 ```
 
-### Branch file
+### Branch tree node
 
 ```md
 ---
@@ -246,7 +357,7 @@ related:
 Rules: controllers route requests; services hold business logic.
 ```
 
-### Leaf file
+### Leaf tree node
 
 ```md
 ---
@@ -263,25 +374,48 @@ Rules: protect sensitive auth values in logs and examples.
 Validate: pnpm --filter api test auth.
 ```
 
-These files define the Context Tree. They do not themselves define a Context Map.
+These files define the Context Tree. They do not themselves define a Context Map, Context Atlas, or Context Route.
 
-For work inside `apps/api/src/auth/`, a generated map might select:
+### Optional map
 
-```text
-selected:
+```md
+# AGENTS.map.auth.md
+
+This map collects context references commonly needed for authentication work.
+
+references:
   - /AGENTS.md
   - /apps/api/AGENTS.md
   - /apps/api/src/auth/AGENTS.md
   - /packages/db/AGENTS.md
-
-routes:
-  - /AGENTS.md → /apps/api/AGENTS.md → /apps/api/src/auth/AGENTS.md
-
-related:
-  - /packages/db/AGENTS.md
+  - /packages/observability/AGENTS.md
 ```
 
-The route gives directions down the tree. The map selects the final working set. The database reference is included as related context because the operating context requires it.
+### Optional atlas
+
+```md
+# AGENTS.atlas.md
+
+maps:
+  - file: AGENTS.map.auth.md
+    context: authentication work
+  - file: AGENTS.map.release.md
+    context: release preparation
+```
+
+### Optional route
+
+```md
+# AGENTS.route.auth.md
+
+This route defines a common path for authentication work.
+
+route:
+  - /AGENTS.md
+  - /apps/api/AGENTS.md
+  - /apps/api/src/auth/AGENTS.md
+  - /packages/db/AGENTS.md
+```
 
 ## Inheritance and precedence
 
@@ -300,7 +434,7 @@ nearest applicable AGENTS.md wins,
 except for non-overridable root rules.
 ```
 
-Inheritance belongs to the tree. Direction belongs to the route. Selection belongs to the map. Indexing belongs to the atlas.
+Inheritance belongs to the Context Tree. Pointer collection belongs to Context Maps. Map indexing belongs to the Context Atlas. Predefined navigation belongs to Context Routes.
 
 ## Relationship to existing patterns
 
@@ -308,24 +442,20 @@ Context Cartography resembles nested `AGENTS.md`, `CLAUDE.md`, Copilot instructi
 
 The distinction is that Context Cartography separates four concerns that are often mixed together:
 
-- durable context structure;
-- downward navigation through that structure;
-- task-specific context selection;
-- indexing of existing selections.
+- project topography and context hierarchy;
+- reference pointer collections;
+- indexing of existing maps;
+- predefined routes through the project.
 
 It is not merely “put instructions near code.” It is a context-resolution model for agentic development.
 
 ## Summary
 
 ```text
-Root   = global invariants + major branch references
-Branch = local architecture + commands + child references
-Leaf   = tactical rules + examples + validation
-
-Tree  = durable hierarchy of scoped context references
-Route = defined directions down the tree
-Map   = selected references for one operating context
-Atlas = index of existing maps
+Tree  = the project’s context topography, represented by all AGENTS.md files
+Map   = an optional AGENTS.map.*.md file containing reference pointers across the tree
+Atlas = an optional AGENTS.atlas.md file indexing existing maps
+Route = an optional AGENTS.route.*.md file defining a hierarchical or mapped route
 ```
 
 Context Cartography reduces context usage, improves contextual relevance, limits instruction noise, and makes agent behavior more predictable across large repositories.
