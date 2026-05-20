@@ -308,7 +308,7 @@ What sequence should an agent follow to rebuild a useful prior context state?
 
 A Context Map is useful when the agent needs a collection of related references. A Context Route is useful when the order of exposure matters because the agent is being primed to perform a repeated task.
 
-For example, authentication work may have a map containing references to API, database, logging, and security policy context -- that mapping says ***what matters***.
+For example, authentication work may have a map containing references to API, database, logging, and security policy context -- that mapping ***defines what matters***.
 
 A release-preparation route may walk through repository rules, changelog policy, test requirements, deployment steps, and rollback notes in a specific order -- that routing ***rebuilds a prior context state***.
 
