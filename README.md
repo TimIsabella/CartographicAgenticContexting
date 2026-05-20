@@ -16,9 +16,7 @@ The goal is to help agents operate with the **smallest sufficient context**: eno
 
 ## Context Tree
 
-A **Context Tree** is the topography of the project itself: the hierarchy of context across the repository.
-
-It is the totality of all `AGENTS.md` files in the project.
+A **Context Tree** is hierarchical totality of all `AGENTS.md` files in the project, and their relation to eachother.
 
 Each `AGENTS.md` file contains the necessary location-aware metadata for the folder where it is located. Together, these files define the project’s contextual topography.
 
