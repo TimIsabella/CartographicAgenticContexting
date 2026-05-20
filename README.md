@@ -2,31 +2,20 @@
 
 **Context Cartography** is a system for organizing and resolving agent context in software repositories.
 
-Instead of treating repository instructions as one large prompt, Context Cartography separates context into four related artifacts:
+Instead of treating repository instructions as one large prompt, Context Cartography separates context into four related concepts:
 
 ```text
-Context Tree  = the topography of the project itself
-Context Map   = an individual collection of reference pointers across the tree
-Context Atlas = the index of existing Context Maps
-Context Route = a predefined hierarchical or mapped route through the project
+Context Tree  = the topography and hierarchy of project context
+Context Map   = a collection of reference pointers across the tree
+Context Atlas = an index of existing Context Maps
+Context Route = a predefined path through project context
 ```
 
 The goal is to help agents operate with the **smallest sufficient context**: enough information to work coherently in the current context, without loading unrelated instructions, architecture notes, examples, or validation steps.
 
-## Concept boundaries
+The following sections explain each concept in order: Tree, Map, Atlas, and Route.
 
-Each concept has a distinct role and file representation.
-
-| Concept | Role | Representation | Required? |
-| --- | --- | --- | --- |
-| **Context Tree** | The topography of the project itself; the hierarchy of context. | The totality of all `AGENTS.md` files containing location-aware metadata. | Yes, when using Context Cartography. |
-| **Context Map** | An individual collection of reference pointers across the tree. | `AGENTS.map.*.md` | No. Created by necessity. |
-| **Context Atlas** | The index of existing Context Maps. | `AGENTS.atlas.md` | No. Useful when maps exist. |
-| **Context Route** | A predefined hierarchical or mapped route through the project. | `AGENTS.route.*.md` | No. Created by necessity. |
-
-## Core Concepts
-
-### Context Tree
+## Context Tree
 
 A **Context Tree** is the topography of the project itself: the hierarchy of context across the repository.
 
@@ -53,7 +42,7 @@ How are those locations arranged by scope, inheritance, and containment?
 
 The tree is not a generated artifact. It is the project’s contextual topography as expressed through `AGENTS.md` files.
 
-### Context Map
+## Context Map
 
 A **Context Map** is an individual collection of reference pointers.
 
@@ -98,7 +87,7 @@ references:
 
 The references may point down one branch, across multiple branches, or into related areas of the project. The map is a contextual collection, not a new hierarchy.
 
-### Context Atlas
+## Context Atlas
 
 A **Context Atlas** is the index of existing Context Maps.
 
@@ -151,7 +140,7 @@ maps:
 
 The atlas is useful when a repository has multiple maps. A small repository may not need one.
 
-### Context Route
+## Context Route
 
 A **Context Route** is a predefined hierarchical or mapped route through the project.
 
