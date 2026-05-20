@@ -2,7 +2,7 @@
 
 **Context Cartography** is a system for organizing, routing, and selecting agent context in software repositories.
 
-It treats repository instructions not as one large prompt, but as a structured landscape. The repository contains a persistent **context tree**, while each task produces a separate **context map**: a reference object that points to the relevant references in that tree.
+It treats repository instructions not as one large prompt, but as a structured landscape. The repository contains a persistent **Context Tree**, while each task produces a separate **context map**: a reference object that points to the relevant references in that tree.
 
 The goal is to help agents operate with the **smallest sufficient context**: enough information to complete the task safely and coherently, without loading unnecessary instructions, unrelated architectural details, or irrelevant examples.
 
@@ -24,9 +24,9 @@ The root file should not list every descendant. It should list only major branch
 
 ### Context Mapping
 
-A **context map** is separate from the context tree. It is a task-specific reference that points to the references needed for a particular change.
+A **context map** is separate from the context tree. It is a self-contained repository of references relevant to a given context, pointing to other references in the tree as needed by that context.
 
-Sometimes the map points to a single path through the tree:
+Example of a map pointing to a single path through the tree:
 
 ```text
 /AGENTS.md
@@ -34,7 +34,7 @@ Sometimes the map points to a single path through the tree:
 /apps/api/src/auth/AGENTS.md
 ```
 
-Other times, the map points to multiple parts of the project:
+Example of the map pointing to multiple parts of the tree:
 
 ```text
 /AGENTS.md
@@ -45,13 +45,13 @@ Other times, the map points to multiple parts of the project:
 ```
 
 The context tree describes what context references exist.  
-The context map is a separate reference layer that points to the context references needed now.
+The context map is a separate reference layer that points to the context references unrelated to tree context traversal.
 
 ## Governing Principle
 
 The central rule of Context Cartography is:
 
-> Load the smallest sufficient context for the task.
+> Load the smallest sufficient context for the task scope.
 
 This prevents two common failures:
 
@@ -60,7 +60,7 @@ Root bloat: placing too much detail in the root file.
 Leaf overfitting: placing overly narrow or duplicated rules in deep files.
 ```
 
-Context should be inherited downward, not duplicated downward. Child files should specialize parent context, not restate it.
+Context should be inherited downward, not duplicated downward -- child files should specialize parent context, not restate it.
 
 ## File Structure
 
@@ -187,7 +187,7 @@ Context map  = separate task-specific reference that points to needed references
 The tree is the territory of available references.  
 The map is a separate route reference that points into that territory.
 
-This distinction is the heart of Context Cartography. A repository may contain a large context tree, but an agent should only resolve and load the references pointed to by the context map for the current task.
+This distinction is the heart of Context Cartography. A repository may contain a large context tree, but an agent should only resolve and load the minimally necessary contextual references.
 
 ## Relationship to existing patterns
 
