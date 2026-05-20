@@ -355,14 +355,3 @@ The distinction is that Context Cartography separates four concerns that are oft
 - predefined stepped routes through the project.
 
 It is not merely “put instructions near code.” It is a context-resolution model for agentic development.
-
-## Summary
-
-```text
-Tree  = the project’s context topography, represented by all AGENTS.md files
-Map   = an optional AGENTS.map.*.md file containing reference pointers across the tree or externally
-Atlas = an optional root AGENTS.atlas.md file indexing existing Context Maps
-Route = an optional AGENTS.route.*.md file defining a predefined stepped route through the project
-```
-
-Context Cartography reduces context usage, improves contextual relevance, limits instruction noise, and makes agent behavior more predictable across large repositories.
