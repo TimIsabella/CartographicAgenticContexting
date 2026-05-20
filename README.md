@@ -62,13 +62,12 @@ node: root | branch | leaf
 scope: path/
 extends: path | null
 children: [...]
-related: [...]
 ---
 ```
 
 The metadata describes a tree node and its durable relationships.
 
-`children` lists immediate tree descendants. `extends` identifies the parent context that this node inherits from. `related` exposes durable cross-scope references that may be useful, but those references are loaded only when selected by the current operating context, a Context Map, or a Context Route.
+`children` lists immediate tree descendants. `extends` identifies the parent context that this node inherits from.
 
 The metadata is for parsing.  
 The heading is for humans.
