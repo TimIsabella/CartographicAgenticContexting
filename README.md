@@ -4,13 +4,13 @@
 
 Instead of treating repository instructions as one large prompt, Context Cartography separates context into four main concepts:
 
-`Context Tree` The topography of the project itself; the hierarchy of context across the entire project
+`Context Tree` The topography of the project itself; the hierarchy of context across the entire project.
 
-`Context Map` An individual collection of reference pointers
+`Context Map` An individual collection of reference pointers.
 
-`Context Atlas` The index of existing Context Maps
+`Context Atlas` The index of existing Context Maps.
 
-`Context Route` An individual and predefined stepped route through the project
+`Context Route` An individual and predefined stepped route through the project.
 
 The goal is to help agents operate with the **smallest sufficient context**: enough information to work coherently in the current context, without loading unrelated instructions, architecture notes, examples, or validation steps.
 
@@ -67,8 +67,11 @@ children: [...]
 The metadata describes a tree node and its durable relationships.
 
 `node` defines it's overall tree position.
+
 `scope` relates the context to it's folder's locality.
+
 `parent` identifies the parent context that this node inherits from.
+
 `children` lists immediate child tree descendants (if any).
 
 The metadata is for parsing.  
