@@ -21,7 +21,7 @@ This solves common token wasting behavior:
 
 - `Context Bloat` placing too much detail in one file
 - `Context Overfitting` placing overly narrow detail in one file
-- `Context Duplication` repeating the dame detail across multiple files
+- `Context Duplication` repeating the same detail across multiple files
 
 ## Context Tree
 
