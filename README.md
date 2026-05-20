@@ -66,7 +66,7 @@ The metadata describes a tree node and its durable relationships.
 
 `node` defines its overall tree position.
 
-`scope` relates the context to its folder's locality.
+`scope` narrows the context to its folder's locality.
 
 `parent` identifies the parent context that this node inherits from.
 
