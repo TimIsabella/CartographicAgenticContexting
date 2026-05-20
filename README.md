@@ -6,7 +6,7 @@ It treats repository instructions not as one large prompt, but as a structured l
 
 The goal is to help agents operate with the **smallest sufficient context**: enough information to complete the task safely and coherently, without loading unnecessary instructions, unrelated architectural details, or irrelevant examples.
 
-## Core concepts
+## Core Concepts
 
 ### Context tree
 
@@ -22,7 +22,7 @@ Root AGENTS.md
 
 The root file should not list every descendant. It should list only major branches. Each branch file should list only its immediate children.
 
-### Context map
+### Context Mapping
 
 A **context map** is the task-specific selection of context needed for a particular change.
 
@@ -47,7 +47,7 @@ Other times, the map may point to multiple parts of the project:
 The context tree describes what context exists.  
 The context map describes what context is needed now.
 
-## Governing principle
+## Governing Principle
 
 The central rule of Context Cartography is:
 
@@ -62,7 +62,7 @@ Leaf overfitting: placing overly narrow or duplicated rules in deep files.
 
 Context should be inherited downward, not duplicated downward. Child files should specialize parent context, not restate it.
 
-## File structure
+## File Structure
 
 The standard filename should remain:
 
@@ -107,7 +107,7 @@ related: []
 Rules: use pnpm, keep changes small, run relevant tests.
 ```
 
-### Branch file
+### Branch File
 
 ```md
 ---
@@ -126,7 +126,7 @@ related:
 Rules: controllers route requests; services hold business logic.
 ```
 
-### Leaf file
+### Leaf File
 
 ```md
 ---
@@ -143,7 +143,7 @@ Rules: never log tokens, session IDs, or OAuth payloads.
 Validate: pnpm --filter api test auth.
 ```
 
-## Routing model
+## Routing Model
 
 A context-cartography-aware agent can:
 
@@ -176,7 +176,7 @@ nearest applicable AGENTS.md wins,
 except for non-overridable root rules.
 ```
 
-## Tree vs. map
+## Tree vs. Map
 
 ```text
 Context tree = persistent repository context structure
