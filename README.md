@@ -368,9 +368,9 @@ Context Cartography resembles nested `AGENTS.md`, `CLAUDE.md`, Copilot instructi
 
 The distinction is that Context Cartography separates four concerns that are often mixed together:
 
-- project topography and context hierarchy;
-- reference pointer collections;
-- indexing of existing maps;
-- repeatable contextual priming through predefined routes.
+- Project topography and context hierarchy
+- Reference pointer collections
+- Indexing of existing maps
+- Repeatable contextual priming through predefined routes
 
 It is not merely “put instructions near code.” It is a context-resolution model for agentic development.
