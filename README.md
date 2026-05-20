@@ -4,19 +4,28 @@
 
 Instead of treating repository instructions as one large prompt, Context Cartography separates context into four main concepts:
 
-`Context Tree` The hierarchy of context across the entire project; the topography of the project itself.
-
-`Context Map` An individual collection of reference pointers.
-
-`Context Atlas` The index of existing Context Maps.
-
-`Context Route` A predefined repeatable traversal used to rebuild a prior context state.
+- ***`Context Tree`***  The hierarchy of context across the entire project; the topography of the project itself
+- ***`Context Map`***  An individual collection of reference pointers
+- ***`Context Atlas`***  The index of existing Context Maps
+- ***`Context Route`***  A predefined repeatable traversal used to rebuild a prior context state
 
 The goal is to help agents operate with the **smallest sufficient context**: enough information to work coherently in the current context, without loading unrelated instructions, architecture notes, examples, or validation steps.
 
+## Governing Principle
+
+The central rule of Context Cartography is:
+
+> Resolve the smallest sufficient context for the current operating context.
+
+This solves common token wasting behavior:
+
+- `Context Bloat` placing too much detail in one file
+- `Context Overfitting` placing overly narrow detail in one file
+- `Context Duplication` repeating the dame detail across multiple files
+
 ## Context Tree
 
-A **Context Tree** is hierarchical totality of all `AGENTS.md` files in the project, and their relation to eachother.
+A **Context Tree** is the hierarchical totality of all `AGENTS.md` files in the project, and their relation to each other.
 
 Each `AGENTS.md` file contains the necessary location-aware metadata for the folder where it is located. Together, these files define the project’s contextual topography.
 
@@ -28,9 +37,9 @@ AGENTS.md
 
 Each `AGENTS.md` file defines context for one repository location:
 
-- The root file defines repository-wide context that applies across the project.
-- Branch files define context for intermediate scopes within narrower subtrees.
-- Leaf files define context for the most specific areas of the project.
+- The *Root* file defines repository-wide context that applies across the project
+- *Branch* files define context for intermediate scopes within narrower subtrees
+- *Leaf* files define context for the most specific areas of the project
 
 Example tree:
 
@@ -64,13 +73,10 @@ children: [...]
 
 The metadata describes a tree node and its durable relationships.
 
-`node` defines its overall tree position.
-
-`scope` narrows the context to its folder's locality.
-
-`parent` identifies the parent context that this node inherits from.
-
-`children` lists immediate child tree descendants (if any).
+- `node` defines its overall tree position
+- `scope` narrows the context to its folder's locality
+- `parent` identifies the parent context that this node inherits from
+- `children` lists immediate child tree descendants (if any)
 
 The metadata is for parsing.  
 The heading is for humans.
@@ -189,9 +195,9 @@ AGENTS.atlas.md
 
 The Context Atlas is located at the project root.
 
-The atlas does not replace the Context Tree and does not define context by itself. It exists to make previously defined maps discoverable.
+The Context Atlas does not replace the Context Tree and does not define context by itself. It exists to make previously defined maps discoverable.
 
-An atlas may index maps by:
+An Context Atlas may index maps by:
 
 - Map filename
 - Repository area
@@ -202,7 +208,7 @@ An atlas may index maps by:
 - Freshness
 - Related maps
 
-The atlas answers:
+The Context Atlas answers:
 
 ```text
 Which Context Maps already exist?
@@ -210,7 +216,7 @@ What is each map for?
 When should an existing map be reused, updated, or ignored?
 ```
 
-Example atlas contents:
+Example Context Atlas:
 
 ```md
 # AGENTS.atlas.md
@@ -230,25 +236,25 @@ maps:
       - /apps/api/AGENTS.md
 ```
 
-The atlas is useful when a repository has multiple maps. A small repository may not need one.
+The Context Atlas is useful when a repository has multiple maps -- a small repository may not need one.
 
 ## Context Route
 
 A **Context Route** is an individual and predefined stepped traversal through the project.
 
-A route is meant to rebuild a prior context state that was established by traversing the project. It enables contextual repeatability by making a previously useful traversal explicit and reusable.
+A Context Route is meant to rebuild a prior context state that was established by traversing the project. It enables contextual repeatability by making a previously useful traversal explicit and reusable.
 
-Routes are useful when performing the same task again requires contextual priming. Instead of rediscovering the relevant context each time, an agent can follow the same route to reconstruct the context state needed for that task.
+Context Routes are useful when performing the same task again requires contextual priming. Instead of rediscovering the relevant context each time, an agent can follow the same route to reconstruct the context state needed for that task.
 
-A route is not required. It is created by necessity when a repeated navigation path should be preserved because the order of exposure matters.
+A Context Route is not required; it is created by necessity when a repeated navigation path should be preserved because the order of exposure matters.
 
 A Context Route is represented as an individual file named:
 
 ```text
-AGENTS.route.*.md
+AGENTS.route.<name>.md
 ```
 
-The wildcard should identify the route purpose.
+The `<name>` identifies the route purpose.
 
 Examples:
 
@@ -270,7 +276,7 @@ Where does the route end?
 What task does this route prepare the agent to perform again?
 ```
 
-Example route:
+Example Context Route:
 
 ```md
 # AGENTS.route.auth.md
@@ -284,7 +290,7 @@ route:
   - /packages/db/AGENTS.md
 ```
 
-The route is about ordered contextual priming: replaying a useful traversal so an agent can rebuild the context state needed to perform a repeated task. The map is about the collection of references. The atlas is about indexing maps.
+A Context Route is about *ordered contextual priming*: replaying a useful traversal so an agent can rebuild the context state needed to perform a repeated task, or to return to the same state at a later time.
 
 ### Map vs Route
 
@@ -300,11 +306,11 @@ A Context Route answers:
 What sequence should an agent follow to rebuild a useful prior context state?
 ```
 
-A map is useful when the agent needs a collection of related references. A route is useful when the order of exposure matters because the agent is being primed to perform a repeated task.
+A Context Map is useful when the agent needs a collection of related references. A Context Route is useful when the order of exposure matters because the agent is being primed to perform a repeated task.
 
-For example, authentication work may have a map containing references to API, database, logging, and security policy context. That map says what matters.
+For example, authentication work may have a map containing references to API, database, logging, and security policy context -- that mapping says ***what matters***.
 
-A release-preparation route may walk through repository rules, changelog policy, test requirements, deployment steps, and rollback notes in a specific order. That route rebuilds the context state needed to perform the release process again.
+A release-preparation route may walk through repository rules, changelog policy, test requirements, deployment steps, and rollback notes in a specific order -- that routing ***rebuilds a prior context state***.
 
 ## How the concepts work together
 
@@ -328,22 +334,7 @@ Atlas → index of existing maps
 Route → repeatable contextual priming and context-state reconstruction
 ```
 
-## Governing Principle
-
-The central rule of Context Cartography is:
-
-> Resolve the smallest sufficient context for the current operating context.
-
-This prevents two common failures:
-
-```text
-Root bloat: placing too much detail in the root file.
-Leaf overfitting: placing overly narrow or duplicated rules in deep files.
-```
-
-Context should be inherited downward, not duplicated downward. Child files should specialize parent context, not restate it.
-
-## Inheritance and precedence
+## Inheritance and Precedence
 
 Context flows downward through the Context Tree.
 
@@ -353,14 +344,10 @@ Root context
     → specialized by leaf context
 ```
 
-More specific context overrides broader context unless it conflicts with a global invariant.
-
-```text
-nearest applicable AGENTS.md wins,
-except for non-overridable root rules.
-```
-
-Inheritance belongs to the Context Tree. Pointer collection belongs to Context Maps. Map indexing belongs to the Context Atlas. Repeatable contextual priming belongs to Context Routes.
+- Inheritance belongs to the Context Tree
+- Pointer collection belongs to Context Maps
+- Map indexing belongs to the Context Atlas
+- Repeatable contextual priming belongs to Context Routes
 
 ## Relationship to existing patterns
 
