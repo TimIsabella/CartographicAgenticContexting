@@ -129,11 +129,9 @@ Together, these files define the Context Tree.
 
 ## Context Map
 
-A **Context Map** is an individual collection of reference pointers.
+A **Context Map** is an individual and optional collection of reference pointers. It is created by necessity when a particular operating context needs an explicit collection of references.
 
 A map links important contexts across the Context Tree or externally. It is not restricted to hierarchy and does not need to follow only parent-child relationships.
-
-A map is not required. It is created by necessity when a particular operating context needs an explicit collection of references.
 
 A Context Map is represented as an individual file named:
 
