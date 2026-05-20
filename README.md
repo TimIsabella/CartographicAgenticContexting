@@ -4,7 +4,7 @@
 
 Instead of treating repository instructions as one large prompt, Context Cartography separates context into four main concepts:
 
-`Context Tree` The topography of the project itself; the hierarchy of context across the entire project.
+`Context Tree` The hierarchy of context across the entire project; the topography of the project itself.
 
 `Context Map` An individual collection of reference pointers.
 
