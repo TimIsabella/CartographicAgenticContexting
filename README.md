@@ -193,14 +193,14 @@ The atlas does not replace the Context Tree and does not define context by itsel
 
 An atlas may index maps by:
 
-- map filename;
-- repository area;
-- task type;
-- operating context;
-- owning team;
-- validation workflow;
-- freshness;
-- related maps.
+- Map filename
+- Repository area
+- Task type
+- Operating context
+- Owning team
+- Validation workflow
+- Freshness
+- Related maps
 
 The atlas answers:
 
