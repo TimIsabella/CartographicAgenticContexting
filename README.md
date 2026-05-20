@@ -13,12 +13,7 @@ Context Route = an individual and predefined stepped route through the project
 
 The goal is to help agents operate with the **smallest sufficient context**: enough information to work coherently in the current context, without loading unrelated instructions, architecture notes, examples, or validation steps.
 
-The four main concepts are described in this order:
-
-1. Context Tree
-2. Context Map
-3. Context Atlas
-4. Context Route
+The four main concepts are `Tree`, `Map`, `Atlas`, `Route`
 
 ## Context Tree
 
