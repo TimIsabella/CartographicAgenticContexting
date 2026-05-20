@@ -60,14 +60,17 @@ Each `AGENTS.md` file should contain metadata that describes its role in the Con
 ---
 node: root | branch | leaf
 scope: path/
-extends: path | null
+parent: path | null
 children: [...]
 ---
 ```
 
 The metadata describes a tree node and its durable relationships.
 
-`children` lists immediate tree descendants. `extends` identifies the parent context that this node inherits from.
+`node` defines it's overall tree position.
+`scope` relates the context to it's folder's locality.
+`parent` identifies the parent context that this node inherits from.
+`children` lists immediate child tree descendants (if any).
 
 The metadata is for parsing.  
 The heading is for humans.
