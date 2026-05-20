@@ -125,7 +125,7 @@ Rules: protect sensitive auth values in logs and examples.
 Validate: pnpm --filter api test auth.
 ```
 
-These files define the Context Tree. They do not themselves define a Context Map, Context Atlas, or Context Route.
+Together, these files define the Context Tree.
 
 ## Context Map
 
