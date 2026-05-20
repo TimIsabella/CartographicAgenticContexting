@@ -10,7 +10,7 @@ Instead of treating repository instructions as one large prompt, Context Cartogr
 
 `Context Atlas` The index of existing Context Maps.
 
-`Context Route` An individual and predefined stepped route through the project.
+`Context Route` A predefined repeatable traversal used to rebuild a prior context state.
 
 The goal is to help agents operate with the **smallest sufficient context**: enough information to work coherently in the current context, without loading unrelated instructions, architecture notes, examples, or validation steps.
 
@@ -234,11 +234,13 @@ The atlas is useful when a repository has multiple maps. A small repository may 
 
 ## Context Route
 
-A **Context Route** is an individual and predefined stepped route through the project.
+A **Context Route** is an individual and predefined stepped traversal through the project.
 
-A route is meant to rebuild a prior context that was established by traversing the project. It enables contextual repeatability by making a previously useful traversal explicit and reusable.
+A route is meant to rebuild a prior context state that was established by traversing the project. It enables contextual repeatability by making a previously useful traversal explicit and reusable.
 
-A route is not required. It is created by necessity when a repeated navigation path should be preserved.
+Routes are useful when performing the same task again requires contextual priming. Instead of rediscovering the relevant context each time, an agent can follow the route to reconstruct the context state needed for that task.
+
+A route is not required. It is created by necessity when a repeated navigation path should be preserved because the order of exposure matters.
 
 A Context Route is represented as an individual file named:
 
@@ -261,10 +263,11 @@ Context Routes are located where appropriate.
 A route answers:
 
 ```text
-What stepped route should an agent follow through the project?
+What stepped route should an agent follow to rebuild a useful context state?
 Which context reference comes first?
 Which references come next?
 Where does the route end?
+What task does this route prepare the agent to perform again?
 ```
 
 Example route:
@@ -272,7 +275,7 @@ Example route:
 ```md
 # AGENTS.route.auth.md
 
-This route rebuilds a prior context established while working on authentication.
+This route rebuilds the context state needed to perform authentication work again.
 
 route:
   - /AGENTS.md
@@ -281,7 +284,27 @@ route:
   - /packages/db/AGENTS.md
 ```
 
-The route is about ordered traversal and contextual repeatability. The map is about the collection of references. The atlas is about indexing maps.
+The route is about ordered contextual priming: replaying a useful traversal so an agent can rebuild the context state needed to perform a repeated task. The map is about the collection of references. The atlas is about indexing maps.
+
+### Map vs Route
+
+A Context Map answers:
+
+```text
+Which references are relevant to this operating context?
+```
+
+A Context Route answers:
+
+```text
+What sequence should an agent follow to rebuild a useful prior context state?
+```
+
+A map is useful when the agent needs a collection of related references. A route is useful when the order of exposure matters because the agent is being primed to perform a repeated task.
+
+For example, authentication work may have a map containing references to API, database, logging, and security policy context. That map says what matters.
+
+A release-preparation route may walk through repository rules, changelog policy, test requirements, deployment steps, and rollback notes in a specific order. That route rebuilds the context state needed to perform the release process again.
 
 ## How the concepts work together
 
@@ -302,7 +325,7 @@ The responsibilities stay separate:
 Tree  → project topography and hierarchy
 Map   → reference pointer collection
 Atlas → index of existing maps
-Route → predefined stepped route through the project
+Route → repeatable contextual priming and context-state reconstruction
 ```
 
 ## Governing Principle
@@ -337,7 +360,7 @@ nearest applicable AGENTS.md wins,
 except for non-overridable root rules.
 ```
 
-Inheritance belongs to the Context Tree. Pointer collection belongs to Context Maps. Map indexing belongs to the Context Atlas. Predefined stepped navigation belongs to Context Routes.
+Inheritance belongs to the Context Tree. Pointer collection belongs to Context Maps. Map indexing belongs to the Context Atlas. Repeatable contextual priming belongs to Context Routes.
 
 ## Relationship to existing patterns
 
@@ -348,6 +371,6 @@ The distinction is that Context Cartography separates four concerns that are oft
 - project topography and context hierarchy;
 - reference pointer collections;
 - indexing of existing maps;
-- predefined stepped routes through the project.
+- repeatable contextual priming through predefined routes.
 
 It is not merely “put instructions near code.” It is a context-resolution model for agentic development.
