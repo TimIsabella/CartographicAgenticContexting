@@ -2,7 +2,7 @@
 
 **Context Cartography** is a system for organizing, routing, and selecting agent context in software repositories.
 
-It treats repository instructions not as one large prompt, but as a structured landscape. The repository contains a persistent **context tree**, and each task produces a temporary **context map** through that tree.
+It treats repository instructions not as one large prompt, but as a structured landscape. The repository contains a persistent **context tree**, while each task produces a separate **context map**: a reference object that points to the relevant references in that tree.
 
 The goal is to help agents operate with the **smallest sufficient context**: enough information to complete the task safely and coherently, without loading unnecessary instructions, unrelated architectural details, or irrelevant examples.
 
@@ -24,9 +24,9 @@ The root file should not list every descendant. It should list only major branch
 
 ### Context Mapping
 
-A **context map** is the task-specific selection of context needed for a particular change.
+A **context map** is separate from the context tree. It is a task-specific reference that points to the references needed for a particular change.
 
-Sometimes the map is a single path through the tree:
+Sometimes the map points to a single path through the tree:
 
 ```text
 /AGENTS.md
@@ -34,7 +34,7 @@ Sometimes the map is a single path through the tree:
 /apps/api/src/auth/AGENTS.md
 ```
 
-Other times, the map may point to multiple parts of the project:
+Other times, the map points to multiple parts of the project:
 
 ```text
 /AGENTS.md
@@ -44,8 +44,8 @@ Other times, the map may point to multiple parts of the project:
 /packages/observability/AGENTS.md
 ```
 
-The context tree describes what context exists.  
-The context map describes what context is needed now.
+The context tree describes what context references exist.  
+The context map is a separate reference layer that points to the context references needed now.
 
 ## Governing Principle
 
@@ -152,12 +152,13 @@ A context-cartography-aware agent can:
 2. Identify the task scope.
 3. Follow relevant child references through the context tree.
 4. Add related context links when the task touches multiple scopes.
-5. Build a context map.
-6. Load only the mapped context.
-7. Execute with the smallest sufficient context.
+5. Build a context map as a separate reference object.
+6. Resolve the map to the referenced context.
+7. Load only the mapped context.
+8. Execute with the smallest sufficient context.
 ```
 
-Inactive branches should not be loaded unless they are part of the context map.
+Inactive branches should not be loaded unless they are referenced by the context map.
 
 ## Inheritance and precedence
 
@@ -179,14 +180,14 @@ except for non-overridable root rules.
 ## Tree vs. Map
 
 ```text
-Context tree = persistent repository context structure
-Context map  = temporary task-specific context selection
+Context tree = persistent repository context reference structure
+Context map  = separate task-specific reference that points to needed references
 ```
 
-The tree is the territory.  
-The map is the route.
+The tree is the territory of available references.  
+The map is a separate route reference that points into that territory.
 
-This distinction is the heart of Context Cartography. A repository may contain a large context tree, but an agent should only load the map required for the current task.
+This distinction is the heart of Context Cartography. A repository may contain a large context tree, but an agent should only resolve and load the references pointed to by the context map for the current task.
 
 ## Relationship to existing patterns
 
@@ -201,12 +202,12 @@ It is a **context-routing system** for agentic development.
 ## Summary
 
 ```text
-Root = global invariants + major branch map
+Root = global invariants + major branch references
 Branch = local architecture + commands + child references
 Leaf = tactical rules + examples + validation
 
-Context tree = all available scoped context
-Context map = selected context for the task
+Context tree = all available scoped context references
+Context map = separate reference pointing to the references needed for the task
 ```
 
 Context Cartography reduces token usage, improves local relevance, limits instruction noise, and makes agent behavior more predictable across large repositories.
