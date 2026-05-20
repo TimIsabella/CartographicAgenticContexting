@@ -28,9 +28,9 @@ AGENTS.md
 
 Each `AGENTS.md` file defines context for one repository location:
 
-- the root file defines global project context;
-- branch files define local architecture, conventions, and commands;
-- leaf files define tactical rules, examples, and validation steps for a specific area.
+- The root file defines repository-wide context that applies across the project.
+- Branch files define context for intermediate scopes within narrower subtrees.
+- Leaf files define context for the most specific areas of the project.
 
 Example tree:
 
