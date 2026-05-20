@@ -5,11 +5,11 @@
 It treats repository instructions not as one large prompt, but as a small set of cooperating cartographic structures:
 
 1. A persistent **Context Tree** that defines the repository's scoped context references.
-2. A **Context Route** that describes the ordered path an agent follows through selected references.
+2. A **Context Route** that defines directions down the Context Tree.
 3. A generated **Context Map** that selects the references and routes needed for the current operating context.
-4. A broader **Context Atlas** that collects available trees, maps, routes, and conventions across a repository or organization.
+4. A **Context Atlas** that indexes existing Context Maps.
 
-The Context Tree is the durable structure stored in the repository. The Context Route is the ordered traversal through selected nodes. The Context Map is a separate contextual structure built from the tree for a particular navigation, task, or interpretation need. The Context Atlas is the higher-level collection that makes multiple trees, maps, and common routes discoverable.
+The Context Tree is the durable structure stored in the repository. The Context Route is a defined set of directions down that tree. The Context Map is a separate contextual structure built from the tree for a particular navigation, task, or interpretation need. The Context Atlas is an index of existing maps so agents can discover known contextual selections.
 
 The goal is to help agents operate with the **smallest sufficient context**: enough information to interpret or navigate coherently within a given context, without loading unrelated instructions, architectural details, or examples.
 
@@ -44,19 +44,19 @@ The Context Tree is not the set of context an agent should load. It is the avail
 
 ### Context Route
 
-A **Context Route** is the ordered path through selected Context Tree nodes for a particular operating context.
+A **Context Route** is a defined set of directions down the Context Tree.
 
-The route is the navigational expression of a selected context. It tells the agent where to go, in what order, and which references should be resolved together.
+The route tells an agent how to move from a broader context node toward a more specific context node. It is directional, tree-bound, and scoped to a path of descent through the hierarchy.
 
 A route answers:
 
 ```text
-Which context references should be traversed?
-In what order should they be resolved?
-Where does the current operating context begin, branch, cross scopes, and stop?
+Where should traversal begin?
+Which child reference should be followed next?
+Where should traversal stop?
 ```
 
-Example of a simple route through one branch of the tree:
+Example of a route down one branch of the tree:
 
 ```text
 /AGENTS.md
@@ -64,30 +64,22 @@ Example of a simple route through one branch of the tree:
     → /apps/api/src/auth/AGENTS.md
 ```
 
-Example of a route that crosses scopes:
+A route is not the whole map. It is the set of directions down the tree that a map may use to reach selected context references.
 
-```text
-/AGENTS.md
-  → /apps/api/AGENTS.md
-    → /apps/api/src/auth/AGENTS.md
-  ↔ /packages/db/AGENTS.md
-  ↔ /packages/observability/AGENTS.md
-```
-
-A route is not the whole map. It is the path or set of path segments the map asks the agent to follow.
+Cross-scope references may appear in a Context Map, but they are not themselves a single downward route unless they are reached through defined tree directions.
 
 ### Context Map
 
 A **Context Map** is separate from the Context Tree. It is a contextual reference object built for a particular operating context.
 
-The map points to the tree nodes needed to understand, navigate, or act within the current context. It may contain a single Context Route through the tree, or it may contain multiple route segments when the current work crosses repository scopes.
+The map points to the tree nodes needed to understand, navigate, or act within the current context. It may use a single Context Route down the tree, or it may combine multiple selected references when the current work crosses repository scopes.
 
 The map answers:
 
 ```text
 Which context references are needed right now?
 Why are those references relevant to the current operating context?
-Which route or routes should be followed to resolve them?
+Which route or routes should be followed down the tree to reach them?
 ```
 
 A Context Map is not a permanent branch, category, or duplicate hierarchy. It is a contextual selection layer over the persistent tree.
@@ -114,35 +106,39 @@ The relation is contextual, not intrinsic. A reference belongs in a map because 
 
 ### Context Atlas
 
-A **Context Atlas** is a collection of context structures for a repository, workspace, organization, or ecosystem.
+A **Context Atlas** is an index of existing Context Maps.
 
-An atlas may include:
+The atlas does not define the Context Tree, and it does not replace map generation. It records maps that already exist so agents can discover, compare, reuse, or refine known contextual selections.
 
-- the available Context Tree or trees;
-- known or generated Context Maps;
-- common Context Routes for recurring tasks;
-- conventions for node metadata, inheritance, related references, and validation;
-- indexes that help agents discover context without loading all of it.
+An atlas may index maps by:
+
+- repository area;
+- task type;
+- operating context;
+- owning team;
+- validation workflow;
+- last update or freshness;
+- related maps.
 
 The atlas answers:
 
 ```text
-What context structures exist across this codebase or organization?
-Which maps and routes are commonly useful?
-How can agents discover the right local context without loading the whole territory?
+Which Context Maps already exist?
+What operating context is each map for?
+When should an existing map be reused, updated, or ignored?
 ```
 
-A Context Atlas is not loaded wholesale for routine work. It is a discovery and organization layer. Agents use the atlas to find the relevant tree, then build or select a map and follow the route needed for the current operating context.
+A Context Atlas is not loaded wholesale for routine work. It is a lookup layer for existing maps. Agents use the atlas to find a relevant map, then resolve that map through its selected references and defined routes.
 
 ### How they work together
 
 The **Context Tree** stores the repository's available scoped context references.
 
-The **Context Route** defines the ordered traversal through selected references.
+The **Context Route** defines directions down the tree.
 
-The **Context Map** is generated from the tree for the current operating context and may contain one or more routes.
+The **Context Map** is generated from the tree for the current operating context and may use one or more routes.
 
-The **Context Atlas** collects trees, maps, routes, and conventions so agents can discover context structures across a larger territory.
+The **Context Atlas** indexes existing Context Maps so agents can discover known selections before generating a new one.
 
 ```text
 Context Tree
@@ -151,9 +147,9 @@ Context Tree
   = inheritance and discoverability
 
 Context Route
-  = ordered traversal
-  = path or path segments through selected tree nodes
-  = resolution order for the current operating context
+  = defined directions down the tree
+  = descent from broader context to more specific context
+  = tree-bound navigation path
 
 Context Map
   = contextual selection layer
@@ -161,12 +157,12 @@ Context Map
   = smallest sufficient set of references to resolve and load
 
 Context Atlas
-  = collection and discovery layer
-  = known trees, maps, routes, and conventions
-  = broader guide to the repository or organization territory
+  = index of existing Context Maps
+  = lookup layer for known contextual selections
+  = map discovery, reuse, and refinement
 ```
 
-An agent should use the Context Atlas to discover available structures when needed, traverse the Context Tree to discover applicable references, build a Context Map that contains only the references needed for the current work, then follow the Context Route to resolve them in order.
+An agent should consult the Context Atlas when looking for an existing map, traverse the Context Tree through defined Context Routes, build or select a Context Map that contains only the references needed for the current work, then resolve those references in the order required by the map.
 
 ## Governing Principle
 
@@ -270,25 +266,25 @@ Validate: pnpm --filter api test auth.
 
 The files above define Context Tree nodes. They do not themselves define a Context Map.
 
-A map for work inside `apps/api/src/auth/` might select the root, API branch, auth leaf, and database context. Its route would describe the order in which those references should be resolved. A different task in the same repository might produce a different map and route without changing the tree.
+A map for work inside `apps/api/src/auth/` might select the root, API branch, auth leaf, and database context. Its route would define the directions down the tree from root to API to auth. A different task in the same repository might produce a different map and route without changing the tree.
 
 ## Routing Model
 
 A context-cartography-aware agent can:
 
 ```text
-1. Start from the root AGENTS.md or from an atlas index.
-2. Identify the current operating context.
-3. Traverse the Context Tree through relevant child references.
-4. Consider durable related references when the operating context crosses scopes.
-5. Build a Context Map as a separate contextual selection object.
-6. Derive a Context Route that orders the selected references.
-7. Resolve the route to the referenced tree nodes.
+1. Check the Context Atlas for an existing relevant Context Map.
+2. If no sufficient map exists, start from the root AGENTS.md.
+3. Identify the current operating context.
+4. Follow defined Context Routes down the Context Tree through relevant child references.
+5. Consider durable related references when the operating context crosses scopes.
+6. Build a Context Map as a separate contextual selection object.
+7. Resolve the map to the referenced tree nodes.
 8. Load only the mapped context.
 9. Continue with the smallest sufficient context.
 ```
 
-Inactive branches should not be loaded unless they are selected by the Context Map and placed on the Context Route.
+Inactive branches should not be loaded unless they are selected by the Context Map and reached through defined Context Routes or explicit related references.
 
 ## Inheritance and precedence
 
@@ -307,36 +303,36 @@ nearest applicable AGENTS.md wins,
 except for non-overridable root rules.
 ```
 
-Inheritance belongs to the tree. Selection belongs to the map. Ordering belongs to the route. Discovery across many structures belongs to the atlas.
+Inheritance belongs to the tree. Directions belong to the route. Selection belongs to the map. Indexing existing maps belongs to the atlas.
 
-A Context Map may include multiple branches, but it does not merge those branches into a new tree. It only identifies which tree references should be resolved together for the current operating context. The Context Route describes how those references are traversed.
+A Context Map may include multiple branches, but it does not merge those branches into a new tree. It only identifies which tree references should be resolved together for the current operating context. The Context Route defines directions down the tree to reach selected references.
 
 ## Tree, Route, Map, and Atlas
 
 ```text
 Context Tree  = persistent repository context reference structure
-Context Route = ordered traversal through selected context references
+Context Route = defined set of directions down the Context Tree
 Context Map   = separate contextual selection object pointing to needed tree references
-Context Atlas = collection of available trees, maps, routes, and conventions
+Context Atlas = index of existing Context Maps
 ```
 
 The tree is the territory of available scoped references.  
-The route is the path currently followed through that territory.  
-The map is the contextual selection and rationale for that path.  
-The atlas is the broader collection that helps agents discover which territory, maps, and routes exist.
+The route is the set of directions down that territory.  
+The map is the contextual selection and rationale for which references matter.  
+The atlas is the index of maps that already exist.
 
-This distinction is the heart of Context Cartography. A repository may contain a large Context Tree, and an organization may maintain a broad Context Atlas, but an agent should only resolve and load the references selected by the current Context Map and ordered by the current Context Route.
+This distinction is the heart of Context Cartography. A repository may contain a large Context Tree and many existing Context Maps, but an agent should only resolve and load the references selected by the current Context Map and reached through the relevant Context Route.
 
 ## Relationship to existing patterns
 
 Context Cartography resembles nested `AGENTS.md`, `CLAUDE.md`, Copilot instructions, Cursor rules, cascading configuration files, and hierarchical retrieval systems.
 
-The distinction is that Context Cartography separates durable context structure from contextual context selection and ordered context traversal:
+The distinction is that Context Cartography separates durable context structure from contextual context selection, downward route definition, and map indexing:
 
 - the Context Tree describes where repository context lives and how it inherits;
+- the Context Route describes directions down the tree;
 - the Context Map describes which references matter for the current operating context;
-- the Context Route describes the order in which selected references should be resolved;
-- the Context Atlas describes how trees, maps, routes, and conventions are collected and discovered across a larger territory.
+- the Context Atlas indexes existing Context Maps.
 
 It is not merely “put instructions near code.”
 
@@ -350,9 +346,9 @@ Branch = local architecture + commands + child references
 Leaf = tactical rules + examples + validation
 
 Context Tree = all available scoped context references and inheritance relationships
-Context Route = ordered traversal through selected context references
+Context Route = defined set of directions down the Context Tree
 Context Map = separate contextual selection object pointing to currently relevant tree references
-Context Atlas = collection and discovery layer for trees, maps, routes, and conventions
+Context Atlas = index of existing Context Maps
 ```
 
 Context Cartography reduces context usage, improves contextual relevance, limits instruction noise, and makes agent behavior more predictable across large repositories.
