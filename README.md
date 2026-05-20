@@ -66,9 +66,9 @@ children: [...]
 
 The metadata describes a tree node and its durable relationships.
 
-`node` defines it's overall tree position.
+`node` defines its overall tree position.
 
-`scope` relates the context to it's folder's locality.
+`scope` relates the context to its folder's locality.
 
 `parent` identifies the parent context that this node inherits from.
 
@@ -85,12 +85,11 @@ The heading is for humans.
 ---
 node: root
 scope: .
-extends: null
+parent: null
 children:
   - apps/web/AGENTS.md
   - apps/api/AGENTS.md
   - packages/ui/AGENTS.md
-related: []
 ---
 
 # /AGENTS.md
@@ -103,13 +102,10 @@ Rules: use pnpm, keep changes small, run relevant tests.
 ---
 node: branch
 scope: apps/api/
-extends: ../../AGENTS.md
+parent: ../../AGENTS.md
 children:
   - src/auth/AGENTS.md
   - src/billing/AGENTS.md
-related:
-  - ../../packages/db/AGENTS.md
-  - ../../packages/observability/AGENTS.md
 ---
 
 # /apps/api/AGENTS.md
@@ -122,10 +118,8 @@ Rules: controllers route requests; services hold business logic.
 ---
 node: leaf
 scope: apps/api/src/auth/
-extends: ../../AGENTS.md
+parent: ../../AGENTS.md
 children: []
-related:
-  - ../../../../packages/db/AGENTS.md
 ---
 
 # /apps/api/src/auth/AGENTS.md
