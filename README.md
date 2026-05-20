@@ -238,7 +238,7 @@ A **Context Route** is an individual and predefined stepped traversal through th
 
 A route is meant to rebuild a prior context state that was established by traversing the project. It enables contextual repeatability by making a previously useful traversal explicit and reusable.
 
-Routes are useful when performing the same task again requires contextual priming. Instead of rediscovering the relevant context each time, an agent can follow the route to reconstruct the context state needed for that task.
+Routes are useful when performing the same task again requires contextual priming. Instead of rediscovering the relevant context each time, an agent can follow the same route to reconstruct the context state needed for that task.
 
 A route is not required. It is created by necessity when a repeated navigation path should be preserved because the order of exposure matters.
 
