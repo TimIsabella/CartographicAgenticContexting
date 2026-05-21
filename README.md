@@ -1,6 +1,6 @@
 # Cartographic Agentic Contexting
 
-**Cartographic Agentic Contexting** is a framework to continuously curate a cascaded contextual topology across evolving software ecosystems, through which both humans and agents sustain clean & navigable context over time.
+**Cartographic Agentic Contexting** is a framework to curate a cascaded contextual topology across evolving software ecosystems, through which both humans and agents sustain clean & navigable context over time.
 
 Instead of treating repository instructions as one large prompt, this framework separates context into four main concepts:
 
