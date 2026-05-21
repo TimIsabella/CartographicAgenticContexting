@@ -220,10 +220,10 @@ Example atlas contents:
 # AGENTS.atlas.md
 
 maps:
-  - file: AGENTS.map.auth.md
+  - file: /apps/api/AGENTS.map.auth.md
     context: authentication work
 
-  - file: AGENTS.map.release.md
+  - file: /docs/releases/AGENTS.map.release.md
     context: release preparation
 ```
 
