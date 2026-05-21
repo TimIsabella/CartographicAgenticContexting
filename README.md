@@ -13,9 +13,9 @@ The goal is to help agents operate with the **smallest sufficient context**: eno
 
 ## Why this matters
 
-Modern software repositories accumulate context faster than humans or agents can safely consume it. Instructions, architecture notes, validation steps, conventions, examples, and exceptions often end up scattered across files, duplicated across folders, or compressed into one oversized prompt.
+Modern software repositories accumulate context faster than humans or agents can safely consume it. Instructions, architecture notes, validation steps, conventions, examples, exceptions, etc. often end up scattered across files, duplicated across folders, or compressed into one oversized prompt.
 
-By treating the repository as something to be mapped, scoped, indexed, and traversed intentionally, this framework helps helps agents resolve only the context needed for the work at hand.
+By treating the repository as something to be *intentionally* mapped, scoped, indexed, and traversed, this framework helps helps agents resolve only the context needed for the work at hand.
 
 ## Governing Principle
 
@@ -62,7 +62,7 @@ What contextual locations exist in this project?
 How are those locations arranged by scope, inheritance, and containment?
 ```
 
-The tree is not a generated artifact. It is the project’s contextual topography as expressed through `AGENTS.md` files.
+The tree is not a generated artifact, it is the project’s contextual topography as expressed through `AGENTS.md` files.
 
 ### Location-aware metadata
 
@@ -145,15 +145,15 @@ Together, these files define the Context Tree.
 
 A **Context Map** is an individual and optional collection of reference pointers. It is created by necessity when a particular operating context needs an explicit collection of references.
 
-A map links important contexts across the Context Tree or externally. It is not restricted to hierarchy and does not need to follow only parent-child relationships.
+A map links important contexts across the tree or externally, it is not restricted to the tree hierarchy, and does not need to follow parent-child relationships.
 
-A Context Map is represented as an individual file named:
+A map is represented as an individual file named:
 
 ```text
-AGENTS.map.*.md
+AGENTS.map.<name>.md
 ```
 
-The wildcard should identify the operating context or purpose of the map.
+The `<name>` identifies the operating context or purpose of the map.
 
 Examples:
 
@@ -203,11 +203,11 @@ It is represented as an individual file named:
 AGENTS.atlas.md
 ```
 
-The Context Atlas is located at the project root.
+The atlas is located at the project root.
 
-The Context Atlas does not replace the Context Tree and does not define context by itself. It exists to make previously defined maps discoverable.
+The atlas does not replace the tree and does not define context by itself -- it exists to make previously defined maps discoverable.
 
-An Context Atlas may index maps by:
+An atlas may index maps by:
 
 - Map filename
 - Repository area
@@ -218,15 +218,15 @@ An Context Atlas may index maps by:
 - Freshness
 - Related maps
 
-The Context Atlas answers:
+The atlas answers:
 
 ```text
-Which Context Maps already exist?
+Which maps already exist?
 What is each map for?
 When should an existing map be reused, updated, or ignored?
 ```
 
-Example Context Atlas:
+Example atlas contents:
 
 ```md
 # AGENTS.atlas.md
@@ -246,7 +246,7 @@ maps:
       - /apps/api/AGENTS.md
 ```
 
-The Context Atlas is useful when a repository has multiple maps -- a small repository may not need one.
+The atlas is useful when a repository has multiple maps -- a small repository may not need one.
 
 ## Context Route
 
@@ -254,13 +254,13 @@ The Context Atlas is useful when a repository has multiple maps -- a small repos
 
 A **Context Route** is an individual and predefined stepped traversal through the project.
 
-A Context Route is meant to rebuild a prior context state that was established by traversing the project. It enables contextual repeatability by making a previously useful traversal explicit and reusable.
+A route is meant to rebuild a prior context state that was established by traversing the project. It enables contextual repeatability by making a previously useful traversal explicit and reusable.
 
-Context Routes are useful when performing the same task again requires contextual priming. Instead of rediscovering the relevant context each time, an agent can follow the same route to reconstruct the context state needed for that task.
+Routes are useful when an agent's contextual priming is necessary to performing the same task again. Instead of rediscovering the relevant context each time, an agent can follow the same route to reconstruct the context state needed for that task.
 
-A Context Route is not required; it is created by necessity when a repeated navigation path should be preserved because the order of exposure matters.
+A route is not required; it is created by necessity when a repeated navigation path should be preserved because the order of exposure matters.
 
-A Context Route is represented as an individual file named:
+A route is represented as an individual file named:
 
 ```text
 AGENTS.route.<name>.md
@@ -276,7 +276,7 @@ AGENTS.route.release.md
 AGENTS.route.incident-response.md
 ```
 
-Context Routes are located where appropriate.
+Routes are located where appropriate.
 
 A route answers:
 
@@ -288,7 +288,7 @@ Where does the route end?
 What task does this route prepare the agent to perform again?
 ```
 
-Example Context Route:
+Example route content:
 
 ```md
 # AGENTS.route.auth.md
@@ -302,23 +302,23 @@ route:
   - /packages/db/AGENTS.md
 ```
 
-A Context Route is about *ordered contextual priming*: replaying a useful traversal so an agent can rebuild the context state needed to perform a repeated task, or to return to the same state at a later time.
+A route is about *ordered contextual priming*: replaying a useful traversal so an agent can rebuild the context state needed to perform a repeated task, or to return to the same state at a later time.
 
 ### Map vs Route
 
-A Context Map answers:
+Context Map answers:
 
 ```text
 Which references are relevant to this operating context?
 ```
 
-A Context Route answers:
+Context Route answers:
 
 ```text
 What sequence should an agent follow to rebuild a useful prior context state?
 ```
 
-A Context Map is useful when the agent needs a collection of related references. A Context Route is useful when the order of exposure matters because the agent is being primed to perform a repeated task.
+A map is useful when the agent needs a collection of related references. A route is useful when the order of exposure matters because the agent is being primed to perform a repeated task.
 
 For example, authentication work may have a map containing references to API, database, logging, and security policy context -- that mapping ***defines what matters***.
 
@@ -329,11 +329,11 @@ A release-preparation route may walk through repository rules, changelog policy,
 A typical resolution flow is:
 
 ```text
-1. Read the Context Tree from available AGENTS.md files.
+1. Read the tree from available AGENTS.md files.
 2. Check the root AGENTS.atlas.md if an atlas exists.
-3. Reuse an existing AGENTS.map.*.md if it matches the operating context.
-4. Create a new Context Map only when an explicit reference collection is needed.
-5. Follow an AGENTS.route.*.md file only when a predefined route exists and is relevant.
+3. Reuse an existing AGENTS.map.<name>.md if it matches the operating context.
+4. Create a new map only when an explicit reference collection is needed.
+5. Follow an AGENTS.route.<name>.md file only when a predefined route exists and is relevant.
 6. Load only the context references needed for the current operating context.
 ```
 
