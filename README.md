@@ -11,6 +11,12 @@ Instead of treating repository instructions as one large prompt, this framework 
 
 The goal is to help agents operate with the **smallest sufficient context**: enough information to work coherently in the current context, without loading unrelated instructions, architecture notes, examples, or validation steps.
 
+## Why this matters
+
+Modern software repositories accumulate context faster than humans or agents can safely consume it. Instructions, architecture notes, validation steps, conventions, examples, and exceptions often end up scattered across files, duplicated across folders, or compressed into one oversized prompt.
+
+By treating the repository as something to be mapped, scoped, indexed, and traversed intentionally, this framework helps helps agents resolve only the context needed for the work at hand.
+
 ## Governing Principle
 
 > *"Resolve the smallest sufficient context for the current operating context"*
