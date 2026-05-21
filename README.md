@@ -15,7 +15,7 @@ The goal is to help agents operate with the **smallest sufficient context**: eno
 
 Modern software repositories accumulate context faster than humans or agents can safely consume it. Instructions, architecture notes, validation steps, conventions, examples, exceptions, etc. often end up scattered across files, duplicated across folders, or compressed into one oversized prompt.
 
-By treating the repository as something to be *intentionally* mapped, scoped, indexed, and traversed, this framework helps helps agents resolve only the context needed for the work at hand.
+By treating the repository as something to be *intentionally* mapped, scoped, indexed, and traversed, this framework helps agents resolve only the context needed for the work at hand.
 
 ## Governing Principle
 
