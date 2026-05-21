@@ -212,7 +212,6 @@ The atlas answers:
 ```text
 Which maps already exist?
 What is each map for?
-When should an existing map be reused, updated, or ignored?
 ```
 
 Example atlas contents:
