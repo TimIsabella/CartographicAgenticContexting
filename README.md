@@ -1,8 +1,8 @@
-# Context Cartography
+# Cartographic Agentic Contexting
 
-**Context Cartography** is a system for organizing and resolving agent context in software repositories.
+**Cartographic Agentic Contexting** is a framework to continuously curate, map, transform, and propagate a cascaded contextual topology across evolving software ecosystems, through which humans and agents sustain clean & navigable context over time.
 
-Instead of treating repository instructions as one large prompt, Context Cartography separates context into four main concepts:
+Instead of treating repository instructions as one large prompt, this framework separates context into four main concepts:
 
 - ***`Context Tree`***  The hierarchy of context across the entire project; the topography of the project itself
 - ***`Context Map`***  An individual collection of reference pointers
@@ -13,7 +13,7 @@ The goal is to help agents operate with the **smallest sufficient context**: eno
 
 ## Governing Principle
 
-The central rule of Context Cartography is:
+The central rule of is:
 
 > Resolve the smallest sufficient context for the current operating context.
 
@@ -351,9 +351,9 @@ Root context
 
 ## Relationship to existing patterns
 
-Context Cartography resembles nested `AGENTS.md`, `CLAUDE.md`, Copilot instructions, Cursor rules, cascading configuration files, and hierarchical retrieval systems.
+This framework resembles nested `AGENTS.md`, `CLAUDE.md`, Copilot instructions, Cursor rules, cascading configuration files, and hierarchical retrieval systems.
 
-The distinction is that Context Cartography separates four concerns that are often mixed together:
+The distinction is that the four concerns are separated instead of mixed together:
 
 - Project topography and context hierarchy
 - Reference pointer collections
