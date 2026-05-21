@@ -29,6 +29,8 @@ This solves common token wasting behavior:
 
 ## Context Tree
 
+<img width="845" height="563" alt="ContextTree" src="https://github.com/user-attachments/assets/c601853f-592c-466c-9f6d-e04fe74bd98c" />
+
 A **Context Tree** is the hierarchical totality of all `AGENTS.md` files in the project, and their relation to each other.
 
 Each `AGENTS.md` file contains the necessary location-aware metadata for the folder where it is located. Together, these files define the project’s contextual topography.
@@ -139,6 +141,8 @@ Together, these files define the Context Tree.
 
 ## Context Map
 
+<img width="845" height="563" alt="ContextMap" src="https://github.com/user-attachments/assets/2e65dc62-60ec-49ba-9277-44ef144070c7" />
+
 A **Context Map** is an individual and optional collection of reference pointers. It is created by necessity when a particular operating context needs an explicit collection of references.
 
 A map links important contexts across the Context Tree or externally. It is not restricted to hierarchy and does not need to follow only parent-child relationships.
@@ -188,6 +192,8 @@ references:
 The references may point down one branch, across multiple branches, into related areas of the project, or to external context. The map is a contextual collection, not a new hierarchy.
 
 ## Context Atlas
+
+<img width="845" height="563" alt="ContextAtlas" src="https://github.com/user-attachments/assets/e6ccf2f7-9ca6-453c-85f5-3b1f4b1eaf30" />
 
 A **Context Atlas** is the index of existing Context Maps.
 
@@ -243,6 +249,8 @@ maps:
 The Context Atlas is useful when a repository has multiple maps -- a small repository may not need one.
 
 ## Context Route
+
+<img width="845" height="563" alt="ContextRoute" src="https://github.com/user-attachments/assets/3eb274e7-10b3-4a6d-9118-412f56d69496" />
 
 A **Context Route** is an individual and predefined stepped traversal through the project.
 
