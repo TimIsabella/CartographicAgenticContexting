@@ -13,9 +13,7 @@ The goal is to help agents operate with the **smallest sufficient context**: eno
 
 ## Governing Principle
 
-The central rule of is:
-
-> Resolve the smallest sufficient context for the current operating context.
+> *"Resolve the smallest sufficient context for the current operating context"*
 
 This solves common token wasting behavior:
 
