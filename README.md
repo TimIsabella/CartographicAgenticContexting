@@ -207,17 +207,6 @@ The atlas is located at the project root.
 
 The atlas does not replace the tree and does not define context by itself -- it exists to make previously defined maps discoverable.
 
-An atlas may index maps by:
-
-- Map filename
-- Repository area
-- Task type
-- Operating context
-- Owning team
-- Validation workflow
-- Freshness
-- Related maps
-
 The atlas answers:
 
 ```text
@@ -234,16 +223,9 @@ Example atlas contents:
 maps:
   - file: AGENTS.map.auth.md
     context: authentication work
-    references:
-      - /apps/api/src/auth/AGENTS.md
-      - /packages/db/AGENTS.md
 
   - file: AGENTS.map.release.md
     context: release preparation
-    references:
-      - /AGENTS.md
-      - /apps/web/AGENTS.md
-      - /apps/api/AGENTS.md
 ```
 
 The atlas is useful when a repository has multiple maps -- a small repository may not need one.
