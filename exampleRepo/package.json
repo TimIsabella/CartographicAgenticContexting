@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "description": "Simple HTML and JavaScript website with JSON database access and cookie-based authorization.",
-  "main": "server.js",
+  "main": "apps/api/src/server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node apps/api/src/server.js"
   },
   "engines": {
     "node": ">=18"
