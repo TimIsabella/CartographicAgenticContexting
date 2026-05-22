@@ -327,6 +327,17 @@ Atlas → index of existing maps
 Route → repeatable contextual priming and context-state reconstruction
 ```
 
+## Example repository
+
+A complete sample monorepo is available under [`examples/monorepo`](examples/monorepo/). It includes:
+
+- a root, branch, and leaf Context Tree using nested `AGENTS.md` files
+- a root `AGENTS.atlas.md` that indexes available maps
+- an authentication Context Map that crosses API and database boundaries
+- a release Context Map and ordered release-preparation Context Route
+
+Use this example to see how Tree, Map, Atlas, and Route files work together as real repository artifacts rather than only conceptual examples.
+
 ## Inheritance and Precedence
 
 Context flows downward through the Context Tree.
