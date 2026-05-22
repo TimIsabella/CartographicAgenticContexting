@@ -15,8 +15,14 @@ This branch node defines context for shared UI package work.
 - Keep visual components reusable across applications.
 - Avoid embedding application-specific business logic in shared UI components.
 - Document component behavior when props affect accessibility, state, or layout.
+- Keep shared browser modules framework-neutral unless the example app adopts a framework.
+
+## Important files
+
+- `components.js` exports simple DOM helpers for reusable cards and status badges.
+- `apps/web/index.html` and `apps/web/src/app.js` demonstrate where shared UI primitives may be applied.
 
 ## Local validation
 
-- Run component-focused checks when shared UI behavior changes.
-- Include accessibility and interaction coverage for reusable components.
+- Run browser-based manual checks through `npm start` when shared UI behavior changes.
+- Include accessibility and interaction coverage for reusable components when adding tests.
