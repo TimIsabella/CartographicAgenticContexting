@@ -1,0 +1,13 @@
+{
+  "name": "cartographic-agentic-contexting-example-repo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Simple HTML and JavaScript website with JSON database access and cookie-based authorization.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
