@@ -2,10 +2,11 @@
   "name": "cartographic-agentic-contexting-example-repo",
   "version": "0.1.0",
   "private": true,
-  "description": "Simple HTML and JavaScript website with JSON database access and cookie-based authorization.",
+  "description": "Small Node.js monorepo sample with scoped API, web, database, observability, billing, and UI contexts.",
   "main": "apps/api/src/server.js",
   "scripts": {
-    "start": "node apps/api/src/server.js"
+    "start": "node apps/api/src/server.js",
+    "check": "node --check apps/api/src/server.js && node --check apps/api/src/http.js && node --check apps/api/src/auth/passwords.js && node --check apps/api/src/auth/sessions.js && node --check apps/api/src/auth/routes.js && node --check apps/api/src/billing/catalog.js && node --check apps/api/src/billing/routes.js && node --check packages/db/store.js && node --check packages/observability/logger.js"
   },
   "engines": {
     "node": ">=18"
