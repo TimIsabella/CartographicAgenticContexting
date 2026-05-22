@@ -357,50 +357,14 @@ Root context
 
 ## Example Repository
 
-The following illustrative layout shows how the four concepts can appear together in a small monorepo. Treat `/` as the repository root:
+A complete example repository is available under [`exampleRepo/`](exampleRepo/). It shows Tree, Map, Atlas, and Route files working together as real repository artifacts rather than only conceptual examples.
 
-```text
-/
-├─ AGENTS.md
-├─ AGENTS.atlas.md
-├─ apps/
-│  └─ api/
-│     ├─ AGENTS.md
-│     ├─ AGENTS.map.auth.md
-│     └─ src/
-│        └─ auth/
-│           └─ AGENTS.md
-├─ docs/
-│  └─ releases/
-│     ├─ AGENTS.md
-│     ├─ AGENTS.map.release.md
-│     └─ AGENTS.route.release-prep.md
-└─ packages/
-   ├─ db/
-   │  └─ AGENTS.md
-   └─ observability/
-      └─ AGENTS.md
-```
+The example includes:
 
-In this example:
+- nested `AGENTS.md` files for root, branch, and leaf Context Tree nodes
+- a root `AGENTS.atlas.md` that indexes available maps
+- API Context Maps and a Context Route for authentication work
+- release, database, observability, web, and UI context files
+- small application files that give the context artifacts something concrete to describe
 
-- `/AGENTS.md` defines repository-wide context.
-- `/apps/api/AGENTS.md` narrows the context for API work.
-- `/apps/api/src/auth/AGENTS.md` specializes the context for authentication work.
-- `/apps/api/AGENTS.map.auth.md` collects cross-cutting authentication references, such as API, database, and observability context.
-- `/AGENTS.atlas.md` indexes available maps so agents can discover them without scanning the whole repository.
-- `/docs/releases/AGENTS.route.release-prep.md` preserves an ordered traversal for repeatable release preparation.
-
-A typical authentication task might resolve context in this order:
-
-```text
-1. /AGENTS.md
-2. /apps/api/AGENTS.md
-3. /apps/api/src/auth/AGENTS.md
-4. /apps/api/AGENTS.map.auth.md
-5. referenced files from the auth map, only as needed
-```
-
-A typical release-preparation task might instead use the atlas to find the release map, then follow the release-preparation route if the order of context exposure matters.
-
-This pattern is intentionally small: add maps, routes, and deeper tree nodes only when the repository's real operating contexts require them.
+Use this example to see how the framework can be applied across a small repository.
