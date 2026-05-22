@@ -10,17 +10,23 @@ Treat `exampleRepo/` as the sample repository root. Paths inside the example use
 exampleRepo/
   AGENTS.md
   AGENTS.atlas.md
+  README.md
+  package.json
   apps/
     api/
       AGENTS.md
       AGENTS.map.auth.md
       src/
+        server.js
         auth/
           AGENTS.md
         billing/
           AGENTS.md
     web/
       AGENTS.md
+      index.html
+      src/
+        app.js
   docs/
     releases/
       AGENTS.md
@@ -29,6 +35,7 @@ exampleRepo/
   packages/
     db/
       AGENTS.md
+      db.json
     observability/
       AGENTS.md
     ui/
@@ -42,3 +49,11 @@ exampleRepo/
 - Use `AGENTS.atlas.md` to discover available Context Maps.
 - Use `AGENTS.map.*.md` files for cross-cutting reference sets.
 - Use `AGENTS.route.*.md` files when context needs to be loaded in a repeatable order.
+
+## Running the example
+
+```sh
+npm start
+```
+
+The API server lives at `/apps/api/src/server.js`, serves the web app from `/apps/web`, and stores local JSON data at `/packages/db/db.json`.
