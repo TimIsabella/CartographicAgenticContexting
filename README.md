@@ -327,9 +327,22 @@ Atlas → index of existing maps
 Route → repeatable contextual priming and context-state reconstruction
 ```
 
+## Relationship to existing patterns
+
+This framework resembles nested `AGENTS.md`, `CLAUDE.md`, Copilot instructions, Cursor rules, cascading configuration files, and hierarchical retrieval systems.
+
+The distinction is that the four concerns are separated instead of mixed together:
+
+- Project topography and context hierarchy
+- Reference pointer collections
+- Indexing of existing maps
+- Repeatable contextual priming through predefined routes
+
+It is not merely “put instructions near code.” It is a context-resolution model for agentic development.
+
 ## Example repository
 
-A complete sample monorepo is available under [`examples/monorepo`](examples/monorepo/). It includes:
+A complete sample monorepo is available under [`examples/monorepo`](exampleRepo/). It includes:
 
 - a root, branch, and leaf Context Tree using nested `AGENTS.md` files
 - a root `AGENTS.atlas.md` that indexes available maps
@@ -352,16 +365,3 @@ Root context
 - Pointer collection belongs to Context Maps
 - Map indexing belongs to the Context Atlas
 - Repeatable contextual priming belongs to Context Routes
-
-## Relationship to existing patterns
-
-This framework resembles nested `AGENTS.md`, `CLAUDE.md`, Copilot instructions, Cursor rules, cascading configuration files, and hierarchical retrieval systems.
-
-The distinction is that the four concerns are separated instead of mixed together:
-
-- Project topography and context hierarchy
-- Reference pointer collections
-- Indexing of existing maps
-- Repeatable contextual priming through predefined routes
-
-It is not merely “put instructions near code.” It is a context-resolution model for agentic development.
