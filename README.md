@@ -340,16 +340,55 @@ The distinction is that the four concerns are separated instead of mixed togethe
 
 It is not merely “put instructions near code.” It is a context-resolution model for agentic development.
 
-## Example repository
+## Example repository pattern
 
-A complete sample monorepo is available under [`examples/monorepo`](exampleRepo/). It includes:
+The following illustrative layout shows how the four concepts can appear together in a small monorepo. Treat `/` as the repository root:
 
-- a root, branch, and leaf Context Tree using nested `AGENTS.md` files
-- a root `AGENTS.atlas.md` that indexes available maps
-- an authentication Context Map that crosses API and database boundaries
-- a release Context Map and ordered release-preparation Context Route
+```text
+/
+├─ AGENTS.md
+├─ AGENTS.atlas.md
+├─ apps/
+│  └─ api/
+│     ├─ AGENTS.md
+│     ├─ AGENTS.map.auth.md
+│     └─ src/
+│        └─ auth/
+│           └─ AGENTS.md
+├─ docs/
+│  └─ releases/
+│     ├─ AGENTS.md
+│     ├─ AGENTS.map.release.md
+│     └─ AGENTS.route.release-prep.md
+└─ packages/
+   ├─ db/
+   │  └─ AGENTS.md
+   └─ observability/
+      └─ AGENTS.md
+```
 
-Use this example to see how Tree, Map, Atlas, and Route files work together as real repository artifacts rather than only conceptual examples.
+In this example:
+
+- `/AGENTS.md` defines repository-wide context.
+- `/apps/api/AGENTS.md` narrows the context for API work.
+- `/apps/api/src/auth/AGENTS.md` specializes the context for authentication work.
+- `/apps/api/AGENTS.map.auth.md` collects cross-cutting authentication references, such as API, database, and observability context.
+- `/AGENTS.atlas.md` indexes available maps so agents can discover them without scanning the whole repository.
+- `/docs/releases/AGENTS.route.release-prep.md` preserves an ordered traversal for repeatable release preparation.
+
+A typical authentication task might resolve context in this order:
+
+```text
+1. /AGENTS.md
+2. /apps/api/AGENTS.md
+3. /apps/api/src/auth/AGENTS.md
+4. /apps/api/AGENTS.map.auth.md
+5. referenced files from the auth map, only as needed
+```
+
+A typical release-preparation task might instead use the atlas to find the release map, then follow the release-preparation route if the order of context exposure matters.
+
+This pattern is intentionally small: add maps, routes, and deeper tree nodes only when the repository's real operating contexts require them.
 
 ## Inheritance and Precedence
 
