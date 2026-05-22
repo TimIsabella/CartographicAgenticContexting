@@ -327,7 +327,7 @@ Atlas → index of existing maps
 Route → repeatable contextual priming and context-state reconstruction
 ```
 
-## Relationship to existing patterns
+## Relationship to Existing Patterns
 
 This framework resembles nested `AGENTS.md`, `CLAUDE.md`, Copilot instructions, Cursor rules, cascading configuration files, and hierarchical retrieval systems.
 
@@ -340,7 +340,22 @@ The distinction is that the four concerns are separated instead of mixed togethe
 
 It is not merely “put instructions near code.” It is a context-resolution model for agentic development.
 
-## Example repository pattern
+## Inheritance and Precedence
+
+Context flows downward through the Context Tree.
+
+```text
+Root context
+  → inherited by branch context
+    → specialized by leaf context
+```
+
+- Inheritance belongs to the Context Tree
+- Pointer collection belongs to Context Maps
+- Map indexing belongs to the Context Atlas
+- Repeatable contextual priming belongs to Context Routes
+
+## Example Repository
 
 The following illustrative layout shows how the four concepts can appear together in a small monorepo. Treat `/` as the repository root:
 
@@ -389,18 +404,3 @@ A typical authentication task might resolve context in this order:
 A typical release-preparation task might instead use the atlas to find the release map, then follow the release-preparation route if the order of context exposure matters.
 
 This pattern is intentionally small: add maps, routes, and deeper tree nodes only when the repository's real operating contexts require them.
-
-## Inheritance and Precedence
-
-Context flows downward through the Context Tree.
-
-```text
-Root context
-  → inherited by branch context
-    → specialized by leaf context
-```
-
-- Inheritance belongs to the Context Tree
-- Pointer collection belongs to Context Maps
-- Map indexing belongs to the Context Atlas
-- Repeatable contextual priming belongs to Context Routes
