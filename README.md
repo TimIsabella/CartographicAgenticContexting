@@ -9,7 +9,7 @@ Instead of treating repository instructions as one large prompt, this framework 
 - ***`Context Atlas`***  The index of existing Context Maps
 - ***`Context Route`***  A predefined repeatable traversal used to rebuild a prior context state
 
-The goal is to help agents operate with the **smallest sufficient context**: enough information to work coherently in the current context, without loading unrelated instructions, architecture notes, examples, or validation steps.
+The goal is to help agents operate with the **smallest sufficient context**: enough information to work coherently in the current context, without loading unrelated instructions, architecture notes, examples, validation steps, etc.
 
 ## Why this matters
 
