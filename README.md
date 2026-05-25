@@ -5,7 +5,7 @@
 Instead of treating repository instructions as one large prompt, this framework separates context into five main concepts:
 
 - ***`Context Key`***  An initial preparatory contextual block to understand the system
-- ***`Context Tree`***  The hierarchy of context across the entire project; the topography of the project itself
+- ***`Context Tree`***  The hierarchy of context across the entire project; the topology of the project itself
 - ***`Context Map`***  An individual collection of reference pointers
 - ***`Context Atlas`***  The index of existing Context Maps and Context Routes
 - ***`Context Route`***  A predefined repeatable traversal used to rebuild a prior context state
@@ -50,7 +50,7 @@ This repository uses additional context file types.
 
 A **Context Tree** is the hierarchical totality of all `AGENTS.md` files in the project, and their relation to each other.
 
-Each `AGENTS.md` file contains the necessary location-aware metadata for the folder where it is located. Together, these files define the project’s contextual topography.
+Each `AGENTS.md` file contains the necessary location-aware metadata for the folder where it is located. Together, these files define the project’s contextual topology.
 
 Context Tree files are located in each folder as:
 
@@ -79,7 +79,7 @@ What contextual locations exist in this project?
 How are those locations arranged by scope, inheritance, and containment?
 ```
 
-The tree is not a generated artifact, it is the project’s contextual topography as expressed through `AGENTS.md` files.
+The tree is not a generated artifact, it is the project’s contextual topology as expressed through `AGENTS.md` files.
 
 ### Location-aware metadata
 
@@ -345,7 +345,7 @@ A typical resolution flow is:
 The responsibilities stay separate:
 
 ```text
-Tree  → project topography and hierarchy
+Tree  → project topology and hierarchy
 Map   → reference pointer collection
 Atlas → index of existing maps and routes
 Route → repeatable contextual priming and context-state reconstruction
@@ -357,7 +357,7 @@ This framework resembles nested `AGENTS.md`, `CLAUDE.md`, Copilot instructions, 
 
 The distinction is that the context concerns are separated instead of mixed together:
 
-- Project topography and context hierarchy
+- Project topology and context hierarchy
 - Reference pointer collections
 - Indexing of existing maps and routes
 - Repeatable contextual priming through predefined routes
