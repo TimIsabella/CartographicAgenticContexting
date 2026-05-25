@@ -10,13 +10,9 @@ children:
   - docs/releases/AGENTS.md
 ---
 
-# exampleRepo/AGENTS.md
-
-This root context applies across the example repository.
-
 ## Purpose
 
-This example demonstrates a complete Cartographic Agentic Contexting layout using a small product monorepo.
+This repository contains a small product monorepo with a frontend application, backend API, shared database package, observability package, and release documentation.
 
 ## Repository-wide rules
 
@@ -30,9 +26,9 @@ This example demonstrates a complete Cartographic Agentic Contexting layout usin
 
 - `apps/web/` contains the frontend application.
 - `apps/api/` contains backend HTTP and service logic.
-- `packages/db/` contains database schema and data access context.
-- `packages/observability/` contains logging, tracing, and metrics context.
-- `docs/releases/` contains release process context.
+- `packages/db/` contains database schema, migrations, and data access helpers.
+- `packages/observability/` contains logging, tracing, metrics, and alerting helpers.
+- `docs/releases/` contains release notes, deployment readiness, and rollback planning.
 
 ## Validation baseline
 
