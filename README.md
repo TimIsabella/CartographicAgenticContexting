@@ -30,7 +30,7 @@ This solves common token wasting behavior:
 
 ## Context Key
 
-The **Context Key** is the basic expanded structure of this system, and ***must*** be placed at the very top of the root `AGENTS.md` file, which is the first file the agent will automatically look to for any task -- this preps the agent with the requisite expanded understanding.
+The **Context Key** is the basic expanded structure of this system, and ***must*** be placed at the very top of every `AGENTS.md` file, which is the first file the agent will automatically look to for any task -- this preps the agent with the requisite expanded understanding.
 
 ```
 This repository uses additional context file types.
