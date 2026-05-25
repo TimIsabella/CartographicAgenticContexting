@@ -7,7 +7,7 @@ Instead of treating repository instructions as one large prompt, this framework 
 - ***`Context Key`***  An initial prepatory contexual block to understand the system
 - ***`Context Tree`***  The hierarchy of context across the entire project; the topography of the project itself
 - ***`Context Map`***  An individual collection of reference pointers
-- ***`Context Atlas`***  The index of existing Context Maps
+- ***`Context Atlas`***  The index of existing Context Maps and Context Routes
 - ***`Context Route`***  A predefined repeatable traversal used to rebuild a prior context state
 
 The goal is to help agents operate with the **smallest sufficient context**: enough information to work coherently in the current context, without loading unrelated instructions, architecture notes, examples, validation steps, etc.
@@ -41,7 +41,7 @@ This repository uses additional context file types.
 |---|---|---|---|
 | Map | `AGENTS.map.<name>.md` | Pointers for one area, workflow, or concern | The task matches the map name or purpose |
 | Route | `AGENTS.route.<name>.md` | Ordered traversal to rebuild a prior context state | Task setup depends on reading context in sequence |
-| Atlas | `AGENTS.atlas.md` | Index of available maps and routes | Choosing which map or routes to use |
+| Atlas | `AGENTS.atlas.md` | Index of available maps and routes | Choosing which map or route to use |
 ```
 
 ## Context Tree
@@ -212,7 +212,7 @@ The references may point down one branch, across multiple branches, into related
 
 <img width="845" height="563" alt="ContextAtlas" src="https://github.com/user-attachments/assets/e6ccf2f7-9ca6-453c-85f5-3b1f4b1eaf30" />
 
-A **Context Atlas** is the index of existing Context Maps.
+A **Context Atlas** is the index of existing Context Maps and Context Routes.
 
 It is represented as an individual file named:
 
@@ -222,13 +222,13 @@ AGENTS.atlas.md
 
 The atlas is located at the project root.
 
-The atlas does not replace the tree and does not define context by itself -- it exists to make previously defined maps discoverable.
+The atlas does not replace the tree and does not define context by itself -- it exists to make previously defined maps and routes discoverable.
 
 The atlas answers:
 
 ```text
-Which maps already exist?
-What is each map for?
+Which maps and routes already exist?
+What is each map or route for?
 ```
 
 Example atlas contents:
@@ -242,9 +242,16 @@ maps:
 
   - file: /docs/releases/AGENTS.map.release.md
     context: release preparation
+
+routes:
+  - file: /apps/api/AGENTS.route.auth.md
+    context: rebuild authentication context state
+
+  - file: /docs/releases/AGENTS.route.release.md
+    context: ordered release preparation
 ```
 
-The atlas is useful when a repository has multiple maps -- a small repository may not need one.
+The atlas is useful when a repository has multiple maps or routes -- a small repository may not need one.
 
 ## Context Route
 
@@ -274,7 +281,7 @@ AGENTS.route.release.md
 AGENTS.route.incident-response.md
 ```
 
-Routes are located where appropriate.
+Routes are located where appropriate and are made discoverable by the root Context Atlas.
 
 A route answers:
 
@@ -330,8 +337,8 @@ A typical resolution flow is:
 1. Read the tree from available AGENTS.md files.
 2. Check the root AGENTS.atlas.md if an atlas exists.
 3. Reuse an existing AGENTS.map.<name>.md if it matches the operating context.
-4. Create a new map only when an explicit reference collection is needed.
-5. Follow an AGENTS.route.<name>.md file only when a predefined route exists and is relevant.
+4. Follow an existing AGENTS.route.<name>.md if the atlas lists a relevant predefined traversal.
+5. Create a new map only when an explicit reference collection is needed.
 6. Load only the context references needed for the current operating context.
 ```
 
@@ -340,7 +347,7 @@ The responsibilities stay separate:
 ```text
 Tree  → project topography and hierarchy
 Map   → reference pointer collection
-Atlas → index of existing maps
+Atlas → index of existing maps and routes
 Route → repeatable contextual priming and context-state reconstruction
 ```
 
@@ -352,7 +359,7 @@ The distinction is that the context concerns are separated instead of mixed toge
 
 - Project topography and context hierarchy
 - Reference pointer collections
-- Indexing of existing maps
+- Indexing of existing maps and routes
 - Repeatable contextual priming through predefined routes
 
 It is not merely “put instructions near code.” It is a context-resolution model for agentic development.
@@ -369,7 +376,7 @@ Root context
 
 - Inheritance belongs to the Context Tree
 - Pointer collection belongs to Context Maps
-- Map indexing belongs to the Context Atlas
+- Map and Route indexing belongs to the Context Atlas
 - Repeatable contextual priming belongs to Context Routes
 
 ## Example Repository
@@ -379,7 +386,7 @@ A complete example repository is available under [`exampleRepo/`](exampleRepo/).
 The example includes:
 
 - nested `AGENTS.md` files for root, branch, and leaf Context Tree nodes
-- a root `AGENTS.atlas.md` that indexes available maps
+- a root `AGENTS.atlas.md` that indexes available maps and routes
 - API Context Maps and a Context Route for authentication work
 - release, database, observability, web, and UI context files
 - small application files that give the context artifacts something concrete to describe
