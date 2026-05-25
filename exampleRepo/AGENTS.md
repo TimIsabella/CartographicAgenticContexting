@@ -16,11 +16,12 @@ This repository contains a small product monorepo with a frontend application, b
 
 ## Repository-wide rules
 
-- Resolve the smallest sufficient context for the current task.
-- Prefer local subtree context before loading unrelated branches.
-- Keep maps focused on reference collections.
-- Keep routes focused on ordered contextual priming.
-- Keep implementation changes small and validate the affected area.
+- Keep changes small and scoped to the affected area.
+- Prefer local subsystem conventions when working inside a subtree.
+- Do not load unrelated implementation areas unless the task crosses boundaries.
+- Keep sensitive values out of source code, fixtures, logs, examples, and documentation.
+- Validate the affected area before considering a change complete.
+- When a change crosses boundaries, validate each affected boundary explicitly.
 
 ## Project layout
 
