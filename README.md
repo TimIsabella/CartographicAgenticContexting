@@ -4,6 +4,7 @@
 
 Instead of treating repository instructions as one large prompt, this framework separates context into four main concepts:
 
+- ***`Context Key`***  An initial prepatory contexual block to understand the system
 - ***`Context Tree`***  The hierarchy of context across the entire project; the topography of the project itself
 - ***`Context Map`***  An individual collection of reference pointers
 - ***`Context Atlas`***  The index of existing Context Maps
@@ -29,16 +30,16 @@ This solves common token wasting behavior:
 
 ## Context Key
 
-The below is the basic expanded structure of this system, and must be placed at the very top of the root `AGENTS.md` file, which is the first file the agent will automatically look to for any task -- this preps the agent with the requisite expanded understanding.
+The 'key' is the basic expanded structure of this system, and ***must*** be placed at the very top of the root `AGENTS.md` file, which is the first file the agent will automatically look to for any task -- this preps the agent with the requisite expanded understanding.
 
 ```
 This repository uses additional context file types.
 
 | Type | File name | Purpose | When to read |
 |---|---|---|---|
-| Atlas | `AGENTS.atlas.md` | Index of available maps. | When choosing which map to use. |
-| Map | `AGENTS.map.<name>.md` | Guide for one area, workflow, or concern. | When the task matches the map name or purpose. |
-| Route | `AGENTS.route.<name>.md` | Ordered list of context files for a task. | When the task matches the route name or purpose. |
+| Atlas | `AGENTS.atlas.md` | Index of available maps | Choosing which map to use |
+| Map | `AGENTS.map.<name>.md` | Guide for one area, workflow, or concern | The task matches the map name or purpose |
+| Route | `AGENTS.route.<name>.md` | Ordered list of context files for a task | The task matches the route name or purpose |
 ```
 
 ## Context Tree
