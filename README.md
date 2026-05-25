@@ -346,7 +346,7 @@ Route → repeatable contextual priming and context-state reconstruction
 
 This framework resembles nested `AGENTS.md`, `CLAUDE.md`, Copilot instructions, Cursor rules, cascading configuration files, and hierarchical retrieval systems.
 
-The distinction is that the four concerns are separated instead of mixed together:
+The distinction is that the context concerns are separated instead of mixed together:
 
 - Project topography and context hierarchy
 - Reference pointer collections
