@@ -27,6 +27,20 @@ This solves common token wasting behavior:
 - `Context Overfitting` placing overly narrow detail in one file
 - `Context Duplication` repeating the same detail across multiple files
 
+## Context Key
+
+The below is the basic expanded structure of this system, and must be placed at the very top of the root `AGENTS.md` file, which is the first file the agent will automatically look to for any task -- this preps the agent with the requisite expanded understanding.
+
+```
+This repository uses additional context file types.
+
+| Type | File name | Purpose | When to read |
+|---|---|---|---|
+| Atlas | `AGENTS.atlas.md` | Index of available maps. | When choosing which map to use. |
+| Map | `AGENTS.map.<name>.md` | Guide for one area, workflow, or concern. | When the task matches the map name or purpose. |
+| Route | `AGENTS.route.<name>.md` | Ordered list of context files for a task. | When the task matches the route name or purpose. |
+```
+
 ## Context Tree
 
 <img width="845" height="563" alt="ContextTree" src="https://github.com/user-attachments/assets/c601853f-592c-466c-9f6d-e04fe74bd98c" />
@@ -138,18 +152,6 @@ Validate: pnpm --filter api test auth.
 ```
 
 Together, these files define the Context Tree.
-
-## Context Key
-
-```
-This repository uses additional context file types.
-
-| Type | File name | Purpose | When to read |
-|---|---|---|---|
-| Atlas | `AGENTS.atlas.md` | Index of available maps. | When choosing which map to use. |
-| Map | `AGENTS.map.<name>.md` | Guide for one area, workflow, or concern. | When the task matches the map name or purpose. |
-| Route | `AGENTS.route.<name>.md` | Ordered list of context files for a task. | When the task matches the route name or purpose. |
-```
 
 ## Context Map
 
