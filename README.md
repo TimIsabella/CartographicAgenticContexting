@@ -41,7 +41,7 @@ This repository uses additional context file types.
 |---|---|---|---|
 | Map | `AGENTS.map.<name>.md` | Pointers for one area, workflow, or concern | The task matches the map name or purpose |
 | Route | `AGENTS.route.<name>.md` | Ordered traversal to rebuild a prior context state | Task setup depends on reading context in sequence |
-| Atlas | `AGENTS.atlas.md` | Index of available maps and routes | Choosing which map or route to use |
+| Atlas | `AGENTS.atlas.md` | Index of available maps and routes | Choosing which maps and/or routes to use |
 ```
 
 ## Context Tree
