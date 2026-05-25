@@ -4,7 +4,7 @@
 
 Instead of treating repository instructions as one large prompt, this framework separates context into five main concepts:
 
-- ***`Context Key`***  An initial prepatory contexual block to understand the system
+- ***`Context Key`***  An initial preparatory contextual block to understand the system
 - ***`Context Tree`***  The hierarchy of context across the entire project; the topography of the project itself
 - ***`Context Map`***  An individual collection of reference pointers
 - ***`Context Atlas`***  The index of existing Context Maps and Context Routes
