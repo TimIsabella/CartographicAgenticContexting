@@ -30,16 +30,18 @@ This solves common token wasting behavior:
 
 ## Context Key
 
-The **Context Key** is the basic expanded structure of this system, and ***must*** be placed at the very top of every `AGENTS.md` file, which is the first file the agent will automatically look to for any task -- this preps the agent with the requisite expanded understanding.
+The **Context Key** is the basic expanded structure of this system, and ***must*** be placed at the very top of every `AGENTS.md` file, which is the first file the agent will look to for any task -- this preps the agent with the requisite expanded understanding.
+
+This key functions both as boilerplate and as a minimal operating manual for interpreting Maps, Routes, and the Atlas before any project-specific instructions are loaded.
 
 ```
 This repository uses additional context file types.
 
 | Type | File name | Purpose | When to read |
 |---|---|---|---|
-| Atlas | `AGENTS.atlas.md` | Index of available maps and routes | Choosing which map or routes to use |
 | Map | `AGENTS.map.<name>.md` | Pointers for one area, workflow, or concern | The task matches the map name or purpose |
 | Route | `AGENTS.route.<name>.md` | Ordered traversal to rebuild a prior context state | Task setup depends on reading context in sequence |
+| Atlas | `AGENTS.atlas.md` | Index of available maps and routes | Choosing which map or routes to use |
 ```
 
 ## Context Tree
