@@ -64,6 +64,16 @@ How are those locations arranged by scope, inheritance, and containment?
 
 The tree is not a generated artifact, it is the project’s contextual topography as expressed through `AGENTS.md` files.
 
+### Context Key
+
+This repository uses additional context file types.
+
+| Type | File name | Purpose | When to read |
+|---|---|---|---|
+| Atlas | `AGENTS.atlas.md` | Index of available maps. | When choosing which map to use. |
+| Map | `AGENTS.map.<name>.md` | Guide for one area, workflow, or concern. | When the task matches the map name or purpose. |
+| Route | `AGENTS.route.<name>.md` | Ordered list of context files for a task. | When the task matches the route name or purpose. |
+
 ### Location-aware metadata
 
 Each `AGENTS.md` file must contain metadata that describes its role in the Context Tree:
