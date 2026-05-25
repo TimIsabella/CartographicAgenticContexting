@@ -379,6 +379,34 @@ Root context
 - Map and Route indexing belongs to the Context Atlas
 - Repeatable contextual priming belongs to Context Routes
 
+## Token Savings
+
+The primary token savings come from avoiding broad, repeated context loading. Instead of pulling every root-level instruction, architecture note, sibling package convention, validation rule, and prior example into every task, an agent can resolve the relevant Context Tree chain and then follow only the maps or routes that match the current operating context.
+
+Typical savings depend on how much irrelevant context was previously loaded:
+
+| Repository workflow | Expected context-token savings |
+|---|---:|
+| Already well-scoped prompts or small touched area | 10%–30% |
+| Large repository with scattered docs and conventions | 30%–60% |
+| Very large monorepo with broad default context loading | 60%–80%+ |
+
+Example contrast:
+
+```text
+Unmapped workflow:
+Root instructions + broad architecture docs + unrelated package notes + validation docs + task files
+
+Mapped workflow:
+Context Key + relevant Context Tree chain + matching Context Map or Context Route + task files
+```
+
+The savings are workload-dependent, not automatic. They are highest when the framework prevents agents from repeatedly loading unrelated project areas, stale instructions, or full-repository documentation for localized work.
+
+Initial adoption also has a token cost. Applying the system to an unmapped large repository may require substantial upfront context consumption while the repo is surveyed and the first Tree, Map, Atlas, and Route artifacts are created. Treat that setup cost as a capital expense: it pays back fastest in repositories where agents repeatedly perform work across the same high-churn or high-confusion areas.
+
+A practical adoption strategy is to avoid mapping the whole repository at once. Start with the most active or context-heavy areas, add maps only when cross-tree references are repeatedly needed, and add routes only when a traversal order has proven useful enough to preserve.
+
 ## Example Repository
 
 A complete example repository is available under [`exampleRepo/`](exampleRepo/). It shows Tree, Map, Atlas, and Route files working together as real repository artifacts rather than only conceptual examples.
