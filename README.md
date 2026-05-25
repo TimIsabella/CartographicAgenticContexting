@@ -2,7 +2,7 @@
 
 **Cartographic Agentic Contexting** is a framework to curate a cascaded contextual topology across evolving software ecosystems, through which both humans and agents sustain clean & navigable context over time.
 
-Instead of treating repository instructions as one large prompt, this framework separates context into four main concepts:
+Instead of treating repository instructions as one large prompt, this framework separates context into five main concepts:
 
 - ***`Context Key`***  An initial prepatory contexual block to understand the system
 - ***`Context Tree`***  The hierarchy of context across the entire project; the topography of the project itself
