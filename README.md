@@ -369,18 +369,18 @@ Typical savings depend on how much irrelevant context was previously loaded:
 Example contrast:
 
 ```text
-Unmapped workflow:
-Root instructions + broad architecture docs + unrelated package notes + validation docs + task files
+Typical Agentic Workflow:
+Root instructions -> broad architecture docs -> unrelated package notes -> validation docs → task files → agentic operation
 
-Mapped workflow:
-Context Key + relevant Context Tree chain + matching Context Map or Context Route + task files
+Operationalized Cartographic Agentic Contexting Workflow:
+Context Key ->  relevant Context Tree chain + Context Atlas → matching Context Map or Context Route -> task files → agentic operation
 ```
 
 The savings are workload-dependent, not automatic. They are highest when the framework prevents agents from repeatedly loading unrelated project areas, stale instructions, or full-repository documentation for localized work.
 
-Initial adoption also has a token cost. Applying the system to an unmapped large repository may require substantial upfront context consumption while the repo is surveyed and the first Tree, Map, Atlas, and Route artifacts are created. Treat that setup cost as a capital expense: it pays back fastest in repositories where agents repeatedly perform work across the same high-churn or high-confusion areas.
+Initial adoption also has a token cost. Applying the system to an unmapped large repository may require substantial upfront context consumption while the repo is surveyed and the first Tree, Map, Route, and Atlas artifacts are created. Treat that setup cost as a capital expense: it pays back fastest in repositories where agents repeatedly perform work across the same high-churn or high-confusion areas.
 
-A practical adoption strategy is to avoid mapping the whole repository at once. Start with the most active or context-heavy areas, add maps only when cross-tree references are repeatedly needed, and add routes only when a traversal order has proven useful enough to preserve.
+A practical adoption strategy is to avoid operationalizing the whole repository at once. Start with the most active or context-heavy areas, add maps only when cross-tree references are repeatedly needed, and add routes only when a traversal order has proven useful enough to preserve.
 
 ## Relationship to Existing Patterns
 
