@@ -364,7 +364,7 @@ Typical savings depend on how much irrelevant context was previously loaded:
 |---|---:|
 | Already well-scoped prompts or small touched area | 10%–30% |
 | Large repository with scattered docs and conventions | 30%–60% |
-| Very large monorepo with broad default context loading | 60%–80%+ |
+| Very large repository with broad default context loading | 60%–80%+ |
 
 Example contrast:
 
