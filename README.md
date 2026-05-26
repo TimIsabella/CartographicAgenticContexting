@@ -7,8 +7,8 @@ Instead of treating repository instructions as one large prompt, this framework 
 - ***`Context Key`***  An initial preparatory contextual block to understand the system
 - ***`Context Tree`***  The hierarchy of context across the entire project; the topology of the project itself
 - ***`Context Map`***  An individual collection of reference pointers
-- ***`Context Atlas`***  The index of existing Context Maps and Context Routes
 - ***`Context Route`***  A predefined repeatable traversal used to rebuild a prior context state
+- ***`Context Atlas`***  The index of existing Context Maps and Context Routes
 
 The goal is to help agents operate with the **smallest sufficient context**: enough information to work coherently in the current context, without loading unrelated instructions, architecture notes, examples, validation steps, etc.
 
@@ -204,49 +204,6 @@ references:
 
 The references may point down one branch, across multiple branches, into related areas of the project, or to external context. The map is a contextual collection, not a new hierarchy.
 
-## Context Atlas
-
-<img width="845" height="563" alt="ContextAtlas" src="https://github.com/user-attachments/assets/e6ccf2f7-9ca6-453c-85f5-3b1f4b1eaf30" />
-
-A **Context Atlas** is the index of existing Context Maps and Context Routes.
-
-It is represented as an individual file named:
-
-```text
-AGENTS.atlas.md
-```
-
-The atlas is located at the project root.
-
-The atlas does not replace the tree and does not define context by itself -- it exists to make previously defined maps and routes discoverable.
-
-The atlas answers:
-
-> *"Which maps and routes already exist?"*  
-> *"What is each map or route for?"*
-
-Example atlas contents:
-
-```md
-# AGENTS.atlas.md
-
-maps:
-  - file: /apps/api/AGENTS.map.auth.md
-    context: authentication work
-
-  - file: /docs/releases/AGENTS.map.release.md
-    context: release preparation
-
-routes:
-  - file: /apps/api/AGENTS.route.auth.md
-    context: rebuild authentication context state
-
-  - file: /docs/releases/AGENTS.route.release.md
-    context: ordered release preparation
-```
-
-The atlas is useful when a repository has multiple maps or routes -- a small repository may not need one.
-
 ## Context Route
 
 <img width="845" height="563" alt="ContextRoute" src="https://github.com/user-attachments/assets/3eb274e7-10b3-4a6d-9118-412f56d69496" />
@@ -301,7 +258,50 @@ route:
 
 A route is about *ordered contextual priming*: replaying a useful traversal so an agent can rebuild the context state needed to perform a repeated task, or to return to the same state at a later time.
 
-### Map vs Route
+## Context Atlas
+
+<img width="845" height="563" alt="ContextAtlas" src="https://github.com/user-attachments/assets/e6ccf2f7-9ca6-453c-85f5-3b1f4b1eaf30" />
+
+A **Context Atlas** is the index of existing Context Maps and Context Routes.
+
+It is represented as an individual file named:
+
+```text
+AGENTS.atlas.md
+```
+
+The atlas is located at the project root.
+
+The atlas does not replace the tree and does not define context by itself -- it exists to make previously defined maps and routes discoverable.
+
+The atlas answers:
+
+> *"Which maps and routes already exist?"*  
+> *"What is each map and route for?"*
+
+Example atlas contents:
+
+```md
+# AGENTS.atlas.md
+
+maps:
+  - file: /apps/api/AGENTS.map.auth.md
+    context: authentication work
+
+  - file: /docs/releases/AGENTS.map.release.md
+    context: release preparation
+
+routes:
+  - file: /apps/api/AGENTS.route.auth.md
+    context: rebuild authentication context state
+
+  - file: /docs/releases/AGENTS.route.release.md
+    context: ordered release preparation
+```
+
+The atlas is useful when a repository has multiple maps and routes -- a small repository may not need one.
+
+## Map vs Route
 
 Context Map answers:
 
