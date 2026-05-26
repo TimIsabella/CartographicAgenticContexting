@@ -11,25 +11,27 @@ scope: exampleRepo/apps/api/
 parent: ../../AGENTS.md
 children:
   - src/auth/AGENTS.md
+  - src/billing/AGENTS.md
 ---
 
 # exampleRepo/apps/api/AGENTS.md
 
 ## Purpose
 
-Backend API context for HTTP handlers, service orchestration, authentication flows, and integration with shared packages.
+Backend API context for HTTP handlers, service orchestration, authentication flows, billing flows, and integration with shared packages.
 
 ## Local rules
 
 - Keep route handlers thin; place business logic in service modules.
-- Treat authentication, authorization, and session handling as security-sensitive.
-- Do not log secrets, credentials, tokens, session identifiers, or raw authorization headers.
+- Treat authentication, authorization, session handling, and billing callbacks as security-sensitive.
+- Do not log secrets, credentials, tokens, session identifiers, raw authorization headers, or payment-provider secrets.
 - When API behavior changes, update or verify affected frontend assumptions and release notes when relevant.
 
 ## Local validation
 
 - Run API-focused tests for changed routes or services.
 - For auth changes, also follow `AGENTS.route.auth-change.md`.
+- For billing changes, use `AGENTS.map.billing.md` and validate persistence plus release risk.
 
 ## Relevant local maps and routes
 
