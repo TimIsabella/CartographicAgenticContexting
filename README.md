@@ -360,7 +360,7 @@ The primary token savings come from avoiding broad, repeated context loading. In
 
 Typical savings depend on how much irrelevant context was previously loaded:
 
-| Repository workflow | Expected context-token savings |
+| Repository workflow | Expected context-token savings per task |
 |---|---:|
 | Already well-scoped prompts or small touched area | 10%–30% |
 | Large repository with scattered docs and conventions | 30%–60% |
