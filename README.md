@@ -83,7 +83,7 @@ The tree is not a generated artifact, it is the project’s contextual topology 
 
 ### Location-aware metadata
 
-Each `AGENTS.md` file must contain metadata that describes its role in the Context Tree:
+Each `AGENTS.md` file ***must*** contain metadata that describes its role in the Context Tree:
 
 ```yaml
 ---
