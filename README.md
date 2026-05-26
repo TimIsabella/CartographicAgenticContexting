@@ -335,8 +335,8 @@ The responsibilities stay separate:
 ```text
 Tree  → project topology and hierarchy
 Map   → reference pointer collection
-Atlas → index of existing maps and routes
 Route → repeatable contextual priming and context-state reconstruction
+Atlas → index of existing maps and routes
 ```
 
 ## Relationship to Existing Patterns
