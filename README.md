@@ -12,7 +12,7 @@ Instead of treating repository instructions as one large prompt, this framework 
 
 The goal is to help agents operate with the **smallest sufficient context**: enough information to work coherently in the current context, without loading unrelated instructions, architecture notes, examples, validation steps, etc.
 
-## Why this matters
+## Why This Matters
 
 Modern software repositories accumulate context faster than humans or agents can safely consume it. Instructions, architecture notes, validation steps, conventions, examples, exceptions, etc. often end up scattered across files, duplicated across folders, or compressed into one oversized prompt.
 
@@ -317,7 +317,7 @@ For example, authentication work may have a map containing references to API, da
 
 A release-preparation route may walk through repository rules, changelog policy, test requirements, deployment steps, and rollback notes in a specific order -- that routing ***rebuilds a prior context state***.
 
-## How the concepts work together
+## How the Concepts Work Together
 
 A typical resolution flow is:
 
