@@ -30,7 +30,7 @@ This solves common token wasting behavior:
 
 ## Context Key
 
-The **Context Key** is the basic expanded structure of this system, and ***must*** be placed at the very top of every `AGENTS.md` file -- this preps the agent with the requisite expanded understanding. This key functions both as boilerplate and as a minimal operating manual for interpreting Maps, Routes, and the Atlas before any project-specific instructions are loaded.
+The **Context Key** is the basic expanded structure of this system, and ***must*** be placed at the very top of every `AGENTS.md` file -- this preps the agent with the requisite expanded understanding. This boilerplate key functions as a minimal operating manual for interpreting Maps, Routes, and the Atlas before any project-specific instructions are loaded.
 
 Note: as is popular convention, it is assumed that the agent will look for an `AGENTS.md` file initially. Adjust accordingly for models that do not match this convention.
 
