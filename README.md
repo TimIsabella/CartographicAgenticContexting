@@ -339,19 +339,6 @@ Route → repeatable contextual priming and context-state reconstruction
 Atlas → index of existing maps and routes
 ```
 
-## Relationship to Existing Patterns
-
-This framework resembles nested `AGENTS.md`, `CLAUDE.md`, Copilot instructions, Cursor rules, cascading configuration files, and hierarchical retrieval systems.
-
-The distinction is that the context concerns are separated instead of mixed together:
-
-- Project topology and context hierarchy
-- Reference pointer collections
-- Indexing of existing maps and routes
-- Repeatable contextual priming through predefined routes
-
-It is not merely “put instructions near code.” It is a context-resolution model for agentic development.
-
 ## Inheritance and Precedence
 
 Context flows downward through the Context Tree.
@@ -394,6 +381,19 @@ The savings are workload-dependent, not automatic. They are highest when the fra
 Initial adoption also has a token cost. Applying the system to an unmapped large repository may require substantial upfront context consumption while the repo is surveyed and the first Tree, Map, Atlas, and Route artifacts are created. Treat that setup cost as a capital expense: it pays back fastest in repositories where agents repeatedly perform work across the same high-churn or high-confusion areas.
 
 A practical adoption strategy is to avoid mapping the whole repository at once. Start with the most active or context-heavy areas, add maps only when cross-tree references are repeatedly needed, and add routes only when a traversal order has proven useful enough to preserve.
+
+## Relationship to Existing Patterns
+
+This framework resembles nested `AGENTS.md`, `CLAUDE.md`, Copilot instructions, Cursor rules, cascading configuration files, and hierarchical retrieval systems.
+
+The distinction is that the context concerns are separated instead of mixed together:
+
+- Project topology and context hierarchy
+- Reference pointer collections
+- Indexing of existing maps and routes
+- Repeatable contextual priming through predefined routes
+
+It is not merely “put instructions near code.” It is a context-resolution model for agentic development.
 
 ## Example Repository
 
