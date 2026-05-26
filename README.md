@@ -74,10 +74,8 @@ Example tree:
 
 The Context Tree answers:
 
-```text
-What contextual locations exist in this project?
-How are those locations arranged by scope, inheritance, and containment?
-```
+> *"What contextual locations exist in this project?"*  
+> *"How are those locations arranged by scope, inheritance, and containment?"*
 
 The tree is not a generated artifact, it is the project’s contextual topology as expressed through `AGENTS.md` files.
 
@@ -184,11 +182,9 @@ Context Maps are located where appropriate.
 
 A map answers:
 
-```text
-Which context references are needed for this operating context?
-Why are these references grouped together?
-What parts of the tree or external context does this map point to?
-```
+> *"Which context references are needed for this operating context?"*  
+> *"Why are these references grouped together?"*  
+> *"What parts of the tree or external context does this map point to?"*
 
 Example map contents:
 
@@ -226,10 +222,8 @@ The atlas does not replace the tree and does not define context by itself -- it 
 
 The atlas answers:
 
-```text
-Which maps and routes already exist?
-What is each map or route for?
-```
+> *"Which maps and routes already exist?"*  
+> *"What is each map or route for?"*
 
 Example atlas contents:
 
@@ -285,13 +279,11 @@ Routes are located where appropriate and are made discoverable by the root Conte
 
 A route answers:
 
-```text
-What stepped route should an agent follow to rebuild a useful context state?
-Which context reference comes first?
-Which references come next?
-Where does the route end?
-What task does this route prepare the agent to perform again?
-```
+> *"What stepped route should an agent follow to rebuild a useful context state?"*  
+> *"Which context reference comes first?"*  
+> *"Which references come next?"*  
+> *"Where does the route end?"*  
+> *"What task does this route prepare the agent to perform again?"*  
 
 Example route content:
 
@@ -313,15 +305,11 @@ A route is about *ordered contextual priming*: replaying a useful traversal so a
 
 Context Map answers:
 
-```text
-Which references are relevant to this operating context?
-```
+> *"Which references are relevant to this operating context?*"
 
 Context Route answers:
 
-```text
-What sequence should an agent follow to rebuild a useful prior context state?
-```
+> *"What sequence should an agent follow to rebuild a useful prior context state?"*
 
 A map is useful when the agent needs a collection of related references. A route is useful when the order of exposure matters because the agent is being primed to perform a repeated task.
 
