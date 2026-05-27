@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cartographic Agentic Contexting"
+  short_description: "Design and maintain AGENTS context topology artifacts"
+  default_prompt: "Use this skill to design, audit, or update AGENTS.md trees, AGENTS.map.<name>.md maps, AGENTS.route.<name>.md routes, and AGENTS.atlas.md for smallest sufficient context resolution."
