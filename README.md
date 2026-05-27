@@ -285,7 +285,7 @@ AGENTS.atlas.md
 
 The atlas is located at the project root.
 
-The atlas does define context by itself -- it exists to make previously defined maps and routes discoverable.
+The atlas does not define context by itself -- it exists to make previously defined maps and routes discoverable.
 
 The atlas answers:
 
