@@ -67,6 +67,21 @@ Constraint:
 - Keep [Atlas] entries short with explicit purpose labels
 - Remove broken, stale, missing, duplicate, or obsolete references
 
+Gate:
+- Metadata integrity: tree metadata fields are present and internally consistent
+- Topology integrity: parent-child relationships are resolvable and reciprocal
+- Atlas integrity: AGENTS.atlas.md is in repository root, and indexed [Map] and [Route] files exist with clear purpose labels
+- Context economy: each artifact contributes directly to its declared scope
+- Replay utility: modified [Route] files still prime the intended repeated task
+
+Output:
+- Complete file content for new artifacts
+- Minimal patch-style updates for existing artifacts
+- Short rationale per modified file
+- Delta summary grouped by artifact type
+- Explanation of how each change reduces irrelevant context loading or duplication
+- Open assumptions where repository structure is ambiguous
+
 Task:
 1. Inventory existing [Artifacts]
 2. Find all AGENTS.md, AGENTS.map.<name>.md, AGENTS.route.<name>.md, and AGENTS.atlas.md files
@@ -83,18 +98,3 @@ Task:
 13. Verify each [Route] reconstructs enough context to repeat the target task
 14. Remove route steps that do not materially contribute to the outcome
 15. Audit with references/audit-checklist.md
-
-Gate:
-- Metadata integrity: tree metadata fields are present and internally consistent
-- Topology integrity: parent-child relationships are resolvable and reciprocal
-- Atlas integrity: AGENTS.atlas.md is in repository root, and indexed [Map] and [Route] files exist with clear purpose labels
-- Context economy: each artifact contributes directly to its declared scope
-- Replay utility: modified [Route] files still prime the intended repeated task
-
-Output:
-- Complete file content for new artifacts
-- Minimal patch-style updates for existing artifacts
-- Short rationale per modified file
-- Delta summary grouped by artifact type
-- Explanation of how each change reduces irrelevant context loading or duplication
-- Open assumptions where repository structure is ambiguous
