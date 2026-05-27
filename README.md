@@ -34,8 +34,7 @@ The **Context Key** is the basic expanded structure of this system, and ***must*
 
 Since the key is repeated across all `AGENTS.md` files, there is a compounding token waste, although minimal as it's optimally written to maximize agent parsability with the least inference. The key boilerplate is however necessary since agent tasks don't always begin in the same place.
 
-Note: as is popular convention, it is assumed that the agent will look for an `AGENTS.md` file initially. Adjust accordingly for models that do not match this convention.
-
+#### Context Key boilerplate
 ```yaml
 ---
 additional_context_file_types:
@@ -53,6 +52,10 @@ additional_context_file_types:
     when_to_read: "Read when task setup depends on reviewing context in a specific sequence"
 ---
 ```
+
+The Context Key boilerplate and Context Tree location-aware metadata are intended to be combined into one YAML frontmatter block at the top of each `AGENTS.md` file, with the Context Key fields first, followed by the location-aware Context Tree metadata.
+
+***Note:*** as is popular convention, it is assumed that the agent will look for an `AGENTS.md` file initially. Adjust accordingly for models that do not match this convention.
 
 ## Context Tree
 
