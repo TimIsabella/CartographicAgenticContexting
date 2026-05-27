@@ -58,7 +58,7 @@ additional_context_file_types:
 
 <img width="845" height="563" alt="ContextTree" src="https://github.com/user-attachments/assets/c601853f-592c-466c-9f6d-e04fe74bd98c" />
 
-A **Context Tree** is the hierarchical totality of all `AGENTS.md` files in the project, and their relation to each other.
+The **Context Tree** is the hierarchical totality of all `AGENTS.md` files in the project, and their relation to each other.
 
 Each `AGENTS.md` file contains the necessary location-aware metadata for the folder where it is located. Together, these files define the project’s contextual topology.
 
@@ -272,7 +272,7 @@ A route is about *ordered contextual priming*: replaying a useful traversal so a
 
 <img width="845" height="563" alt="ContextAtlas" src="https://github.com/user-attachments/assets/e6ccf2f7-9ca6-453c-85f5-3b1f4b1eaf30" />
 
-A **Context Atlas** is the index of existing Context Maps and Context Routes.
+The **Context Atlas** is the index of existing Context Maps and Context Routes.
 
 It is represented as an individual file named:
 
@@ -282,7 +282,7 @@ AGENTS.atlas.md
 
 The atlas is located at the project root.
 
-The atlas does not replace the tree and does not define context by itself -- it exists to make previously defined maps and routes discoverable.
+The atlas does define context by itself -- it exists to make previously defined maps and routes discoverable.
 
 The atlas answers:
 
@@ -333,7 +333,7 @@ A typical resolution flow is:
 
 ```text
 1. Read the tree from available AGENTS.md files.
-2. Check the root AGENTS.atlas.md if an atlas exists.
+2. Check the root AGENTS.atlas.md if the atlas exists.
 3. Reuse an existing AGENTS.map.<name>.md if it matches the operating context.
 4. Follow an existing AGENTS.route.<name>.md if the atlas lists a relevant predefined traversal.
 5. Create a new map only when an explicit reference collection is needed.
@@ -344,9 +344,9 @@ The responsibilities stay separate:
 
 ```text
 Tree  → project topology and hierarchy
+Atlas → index of existing maps and routes
 Map   → reference pointer collection
 Route → repeatable contextual priming and context-state reconstruction
-Atlas → index of existing maps and routes
 ```
 
 ## Inheritance and Precedence
