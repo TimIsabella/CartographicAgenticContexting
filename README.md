@@ -32,16 +32,26 @@ This solves common token wasting behavior:
 
 The **Context Key** is the basic expanded structure of this system, and ***must*** be placed at the very top of every `AGENTS.md` file -- this preps the agent with the requisite expanded understanding. This boilerplate key functions as a minimal operating manual for interpreting Maps, Routes, and the Atlas before any project-specific instructions are loaded.
 
+Since the key is repeated across all `AGENTS.md` files, there is a compounding token waste, although minimal as it's optimally written to maximize agent parsability with the least inference. The key boilerplate is however necessary since agent tasks don't always begin in the same place.
+
 Note: as is popular convention, it is assumed that the agent will look for an `AGENTS.md` file initially. Adjust accordingly for models that do not match this convention.
 
 ```
-This repository uses additional context file types.
-
-| Type | File name | Purpose | When to read |
-|---|---|---|---|
-| Map | `AGENTS.map.<name>.md` | Pointers for one area, workflow, or concern | The task matches the map name or purpose |
-| Route | `AGENTS.route.<name>.md` | Ordered traversal to rebuild a prior context state | Task setup depends on reading context in sequence |
-| Atlas | `AGENTS.atlas.md` | Index of available maps and routes | Choosing which maps and/or routes to use |
+---
+additional_context_file_types:
+  atlas:
+    file_name_pattern: "AGENTS.atlas.md"
+    purpose: "Indexes available maps and routes"
+    when_to_read: "Read when deciding which maps or routes are relevant to the task"
+  map:
+    file_name_pattern: "AGENTS.map.<name>.md"
+    purpose: "Points to context for one area, workflow, or concern"
+    when_to_read: "Read when task matches the map name, area, workflow, or concern"
+  route:
+    file_name_pattern: "AGENTS.route.<name>.md"
+    purpose: "Defines an ordered traversal for rebuilding a prior context state"
+    when_to_read: "Read when task setup depends on reviewing context in a specific sequence"
+---
 ```
 
 ## Context Tree
