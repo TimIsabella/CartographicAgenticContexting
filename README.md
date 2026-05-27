@@ -36,7 +36,7 @@ Since the key is repeated across all `AGENTS.md` files, there is a compounding t
 
 Note: as is popular convention, it is assumed that the agent will look for an `AGENTS.md` file initially. Adjust accordingly for models that do not match this convention.
 
-```
+```yaml
 ---
 additional_context_file_types:
   atlas:
