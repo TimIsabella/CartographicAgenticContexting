@@ -13,14 +13,14 @@ additional_context_file_types:
     purpose: "Defines an ordered traversal for context replay to rehydrate the agent’s context to a prior state"
     when_to_read: "Read when task setup depends on reviewing context in a specific sequence"
 node: branch
-scope: ExampleRepo/apps/api/
-parent: /ExampleRepo/AGENTS.md
+scope: CartographedRepoExample/apps/api/
+parent: /CartographedRepoExample/AGENTS.md
 children:
-  - /ExampleRepo/apps/api/src/auth/AGENTS.md
-  - /ExampleRepo/apps/api/src/billing/AGENTS.md
+  - /CartographedRepoExample/apps/api/src/auth/AGENTS.md
+  - /CartographedRepoExample/apps/api/src/billing/AGENTS.md
 ---
 
-# ExampleRepo/apps/api/AGENTS.md
+# CartographedRepoExample/apps/api/AGENTS.md
 
 This branch node defines context for API application work.
 

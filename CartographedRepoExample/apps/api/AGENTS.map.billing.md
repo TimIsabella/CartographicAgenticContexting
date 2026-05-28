@@ -1,15 +1,15 @@
-# ExampleRepo/apps/api/AGENTS.map.billing.md
+# CartographedRepoExample/apps/api/AGENTS.map.billing.md
 
-This Context Map collects references commonly needed for billing work in `ExampleRepo/`.
+This Context Map collects references commonly needed for billing work in `CartographedRepoExample/`.
 
 references:
-  - /ExampleRepo/AGENTS.md
-  - /ExampleRepo/AGENTS.atlas.md
-  - /ExampleRepo/apps/api/AGENTS.md
-  - /ExampleRepo/apps/api/src/billing/AGENTS.md
-  - /ExampleRepo/packages/db/AGENTS.md
-  - /ExampleRepo/packages/observability/AGENTS.md
-  - /ExampleRepo/apps/web/AGENTS.md
+  - /CartographedRepoExample/AGENTS.md
+  - /CartographedRepoExample/AGENTS.atlas.md
+  - /CartographedRepoExample/apps/api/AGENTS.md
+  - /CartographedRepoExample/apps/api/src/billing/AGENTS.md
+  - /CartographedRepoExample/packages/db/AGENTS.md
+  - /CartographedRepoExample/packages/observability/AGENTS.md
+  - /CartographedRepoExample/apps/web/AGENTS.md
 
 ## Why these references belong together
 

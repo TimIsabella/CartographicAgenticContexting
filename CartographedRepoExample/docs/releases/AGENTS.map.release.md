@@ -1,16 +1,16 @@
-# ExampleRepo/docs/releases/AGENTS.map.release.md
+# CartographedRepoExample/docs/releases/AGENTS.map.release.md
 
-This Context Map collects references commonly needed for release preparation in `ExampleRepo/`.
+This Context Map collects references commonly needed for release preparation in `CartographedRepoExample/`.
 
 references:
-  - /ExampleRepo/AGENTS.md
-  - /ExampleRepo/AGENTS.atlas.md
-  - /ExampleRepo/docs/releases/AGENTS.md
-  - /ExampleRepo/apps/api/AGENTS.md
-  - /ExampleRepo/apps/web/AGENTS.md
-  - /ExampleRepo/packages/db/AGENTS.md
-  - /ExampleRepo/packages/observability/AGENTS.md
-  - /ExampleRepo/packages/ui/AGENTS.md
+  - /CartographedRepoExample/AGENTS.md
+  - /CartographedRepoExample/AGENTS.atlas.md
+  - /CartographedRepoExample/docs/releases/AGENTS.md
+  - /CartographedRepoExample/apps/api/AGENTS.md
+  - /CartographedRepoExample/apps/web/AGENTS.md
+  - /CartographedRepoExample/packages/db/AGENTS.md
+  - /CartographedRepoExample/packages/observability/AGENTS.md
+  - /CartographedRepoExample/packages/ui/AGENTS.md
 
 ## Why these references belong together
 

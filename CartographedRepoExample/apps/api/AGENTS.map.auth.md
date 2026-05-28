@@ -1,15 +1,15 @@
-# ExampleRepo/apps/api/AGENTS.map.auth.md
+# CartographedRepoExample/apps/api/AGENTS.map.auth.md
 
-This Context Map collects references commonly needed for authentication work in `ExampleRepo/`.
+This Context Map collects references commonly needed for authentication work in `CartographedRepoExample/`.
 
 references:
-  - /ExampleRepo/AGENTS.md
-  - /ExampleRepo/AGENTS.atlas.md
-  - /ExampleRepo/apps/api/AGENTS.md
-  - /ExampleRepo/apps/api/src/auth/AGENTS.md
-  - /ExampleRepo/packages/db/AGENTS.md
-  - /ExampleRepo/packages/observability/AGENTS.md
-  - /ExampleRepo/apps/web/AGENTS.md
+  - /CartographedRepoExample/AGENTS.md
+  - /CartographedRepoExample/AGENTS.atlas.md
+  - /CartographedRepoExample/apps/api/AGENTS.md
+  - /CartographedRepoExample/apps/api/src/auth/AGENTS.md
+  - /CartographedRepoExample/packages/db/AGENTS.md
+  - /CartographedRepoExample/packages/observability/AGENTS.md
+  - /CartographedRepoExample/apps/web/AGENTS.md
 
 ## Why these references belong together
 

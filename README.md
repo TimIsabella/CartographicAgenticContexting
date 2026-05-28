@@ -410,7 +410,7 @@ It is not merely “put instructions near code.” It is a context-resolution mo
 
 ## Example Repository
 
-A complete example repository is available under [`ExampleRepo/`](ExampleRepo/). It shows Tree, Map, Atlas, and Route files working together as real repository artifacts rather than only conceptual examples.
+A complete example repository is available under [`CartographedRepoExample/`](CartographedRepoExample/). It shows Tree, Map, Atlas, and Route files working together as real repository artifacts rather than only conceptual examples.
 
 The example includes:
 

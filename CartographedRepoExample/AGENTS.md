@@ -13,18 +13,18 @@ additional_context_file_types:
     purpose: "Defines an ordered traversal for context replay to rehydrate the agent’s context to a prior state"
     when_to_read: "Read when task setup depends on reviewing context in a specific sequence"
 node: root
-scope: ExampleRepo/
+scope: CartographedRepoExample/
 parent: null
 children:
-  - /ExampleRepo/apps/web/AGENTS.md
-  - /ExampleRepo/apps/api/AGENTS.md
-  - /ExampleRepo/packages/db/AGENTS.md
-  - /ExampleRepo/packages/observability/AGENTS.md
-  - /ExampleRepo/packages/ui/AGENTS.md
-  - /ExampleRepo/docs/releases/AGENTS.md
+  - /CartographedRepoExample/apps/web/AGENTS.md
+  - /CartographedRepoExample/apps/api/AGENTS.md
+  - /CartographedRepoExample/packages/db/AGENTS.md
+  - /CartographedRepoExample/packages/observability/AGENTS.md
+  - /CartographedRepoExample/packages/ui/AGENTS.md
+  - /CartographedRepoExample/docs/releases/AGENTS.md
 ---
 
-# ExampleRepo/AGENTS.md
+# CartographedRepoExample/AGENTS.md
 
 ## Purpose
 
