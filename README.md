@@ -211,12 +211,12 @@ Example map contents:
 This map collects context references commonly needed for authentication work.
 
 references:
-- /AGENTS.md
-- /apps/api/AGENTS.md
-- /apps/api/src/auth/AGENTS.md
-- /packages/db/AGENTS.md
-- /packages/observability/AGENTS.md
-- https://example.com/external-auth-spec
+  - /AGENTS.md
+  - /apps/api/AGENTS.md
+  - /apps/api/src/auth/AGENTS.md
+  - /packages/db/AGENTS.md
+  - /packages/observability/AGENTS.md
+  - https://example.com/external-auth-spec
 ```
 
 The references may point down one branch, across multiple branches, into related areas of the project, or to external context. The map is a contextual collection, not a new hierarchy.
@@ -267,10 +267,10 @@ Example route content:
 This route rebuilds the context state needed to perform authentication work again.
 
 route:
-1. /AGENTS.md
-2. /apps/api/AGENTS.md
-3. /apps/api/src/auth/AGENTS.md
-4. /packages/db/AGENTS.md
+  1. /AGENTS.md
+  2. /apps/api/AGENTS.md
+  3. /apps/api/src/auth/AGENTS.md
+  4. /packages/db/AGENTS.md
 ```
 
 A route is about *ordered contextual priming*: replaying a useful traversal so an agent can rebuild the context state needed to perform a repeated task, or to return to the same state at a later time.
