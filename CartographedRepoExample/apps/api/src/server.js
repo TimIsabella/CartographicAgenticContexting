@@ -12,7 +12,7 @@ const { createBillingRoutes } = require('./billing/routes');
 const PORT = Number(process.env.PORT ?? 3000);
 const REPO_ROOT = path.resolve(__dirname, '../../..');
 const PUBLIC_DIR = path.join(REPO_ROOT, 'apps/web');
-const DB_FILE = path.join(REPO_ROOT, 'packages/db/db.json');
+const DB_FILE = path.resolve(process.env.DB_FILE_PATH ?? path.join(REPO_ROOT, 'packages/db/db.json'));
 
 const store = createStore(DB_FILE);
 const handleAuthRoute = createAuthRoutes(store);
@@ -69,6 +69,11 @@ async function handleNotesRoute(request, response, url) {
 }
 
 async function handleApi(request, response, url) {
+  if (request.method === 'GET' && url.pathname === '/api/health') {
+    sendJson(response, 200, { ok: true });
+    return;
+  }
+
   const handled =
     (await handleAuthRoute(request, response, url)) ||
     (await handleBillingRoute(request, response, url)) ||

@@ -6,7 +6,9 @@
   "main": "apps/api/src/server.js",
   "scripts": {
     "start": "node apps/api/src/server.js",
-    "check": "node --check apps/api/src/server.js && node --check apps/api/src/http.js && node --check apps/api/src/auth/passwords.js && node --check apps/api/src/auth/sessions.js && node --check apps/api/src/auth/routes.js && node --check apps/api/src/billing/catalog.js && node --check apps/api/src/billing/routes.js && node --check packages/db/store.js && node --check packages/observability/logger.js"
+    "check": "node scripts/check-syntax.js",
+    "test": "node --test",
+    "verify": "npm run check && npm run test"
   },
   "engines": {
     "node": ">=18"
