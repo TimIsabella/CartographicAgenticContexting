@@ -13,6 +13,7 @@ Context:
 - In AGENTS.md frontmatter, place Context Key fields first
 - After Context Key fields, place Context Tree location-aware metadata
 - Do not split Context Key and Context Tree metadata into separate YAML blocks
+- Route references must be written as a numeric sequence under `route:` because route order is semantic
 
 [RootNode]:
 ```md
@@ -115,9 +116,9 @@ references:
 This route rebuilds context state for <repeated task>.
 
 route:
-  - /AGENTS.md
-  - /path/to/broader/context/AGENTS.md
-  - /path/to/local/task/context/AGENTS.md
+  1. /AGENTS.md
+  2. /path/to/broader/context/AGENTS.md
+  3. /path/to/local/task/context/AGENTS.md
 ```
 
 [AtlasTemplate]:
@@ -145,17 +146,18 @@ P1. Keep internal [Map], [Route], and [Atlas] references repository-absolute (fo
 P2. Keep atlas entries short and index-like
 P3. Keep map files concern-focused
 P4. Keep route files ordered for context replay
-P5. Replace placeholders only when repository-specific values are provided
-P6. Preserve literal blocks exactly when generating reusable templates
-P7. Use one YAML frontmatter block at the top of each AGENTS.md file
-P8. Place Context Key fields before Context Tree metadata in AGENTS.md frontmatter
+P5. Format route entries as numbered steps under `route:` (`1.`, `2.`, `3.`), not unordered bullets
+P6. Replace placeholders only when repository-specific values are provided
+P7. Preserve literal blocks exactly when generating reusable templates
+P8. Use one YAML frontmatter block at the top of each AGENTS.md file
+P9. Place Context Key fields before Context Tree metadata in AGENTS.md frontmatter
 
 Task:
 1. Select [RootNode], [BranchNode], or [LeafNode] based on repository position
 2. Use the selected node template as the complete AGENTS.md starting point
 3. Keep Context Key fields and Context Tree metadata in one YAML frontmatter block
 4. Use [MapTemplate] for concern-based reference files
-5. Use [RouteTemplate] for ordered replay files
+5. Use [RouteTemplate] for ordered replay files with numbered route steps
 6. Use [AtlasTemplate] to index available maps and routes
 7. If repository-specific values are provided, replace placeholders and produce repository-specific artifacts
 8. If repository-specific values are not provided, preserve literal blocks and return reusable templates
