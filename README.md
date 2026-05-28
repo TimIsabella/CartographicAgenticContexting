@@ -16,7 +16,7 @@ The goal is to help agents operate with the **smallest sufficient context**: eno
 
 ## Why This Matters
 
-<img width="845" height="476" alt="Cartographed" src="https://github.com/user-attachments/assets/b0129e55-a5c9-434a-84c9-b018f8b14190" />
+<img width="845" height="592" alt="Cartographed" src="https://github.com/user-attachments/assets/cb4012e8-842d-4101-b67e-f51458219cd8" />
 
 Modern software repositories accumulate context faster than humans or agents can safely consume it. Instructions, architecture notes, validation steps, conventions, examples, exceptions, etc. often end up scattered across files, duplicated across folders, or compressed into one oversized prompt.
 
