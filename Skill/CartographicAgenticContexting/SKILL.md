@@ -24,6 +24,7 @@ Scope:
 - AGENTS.route.<name>.md
 - Ordered references for rebuilding a prior context state
 - Reference order matters
+- Route steps use an explicit numeric sequence under `route:` (`1.`, `2.`, `3.`), not unordered bullets
 
 [Atlas]:
 - Root AGENTS.atlas.md
@@ -64,6 +65,7 @@ Constraint:
 - Keep AGENTS.md metadata valid: node, scope, parent, children
 - Keep [Map] files minimal to one concern
 - Keep [Route] files ordered from broad constraints to narrow task context
+- Keep [Route] sequences numbered under `route:`; do not use unordered bullet lists for route steps
 - Keep [Atlas] entries short with explicit purpose labels
 - Remove broken, stale, missing, duplicate, or obsolete references
 
@@ -72,7 +74,7 @@ Gate:
 - Topology integrity: parent-child relationships are resolvable and reciprocal
 - Atlas integrity: AGENTS.atlas.md is in repository root, and indexed [Map] and [Route] files exist with clear purpose labels
 - Context economy: each artifact contributes directly to its declared scope
-- Replay utility: modified [Route] files still prime the intended repeated task
+- Replay utility: modified [Route] files still prime the intended repeated task in numeric sequence
 
 Output:
 - Complete file content for new artifacts
@@ -94,7 +96,7 @@ Task:
 9. Confirm every child-listed parent is reciprocal
 10. Confirm each non-root AGENTS.md parent path resolves
 11. Confirm each [Atlas] entry points to an existing [Map] or [Route]
-12. Replay each modified [Route] in listed order
+12. Replay each modified [Route] in numeric order
 13. Verify each [Route] reconstructs enough context to repeat the target task
 14. Remove route steps that do not materially contribute to the outcome
 15. Audit with references/audit-checklist.md
