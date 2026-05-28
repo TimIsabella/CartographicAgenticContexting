@@ -40,7 +40,7 @@ Context:
 [ValidateRoute]:
 - Purpose states a repeated task or context-state replay target
 - Order moves from broad constraints to narrow execution context
-- Route entries are numbered steps under `route:` (`1.`, `2.`, `3.`), not unordered bullets
+- Route entries are numbered steps under `route:`
 - Numbered route sequence is contiguous and starts at `1.`
 - Every reference resolves
 - Route replay has no missing prerequisite context
