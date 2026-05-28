@@ -24,7 +24,7 @@ Scope:
 - AGENTS.route.<name>.md
 - Ordered references for rebuilding a prior context state
 - Reference order matters
-- Route steps use an explicit numeric sequence under `route:` (`1.`, `2.`, `3.`), not unordered bullets
+- Route steps use an explicit numeric sequence under `route:`
 
 [Atlas]:
 - Root AGENTS.atlas.md
@@ -64,8 +64,7 @@ Standard:
 Constraint:
 - Keep AGENTS.md metadata valid: node, scope, parent, children
 - Keep [Map] files minimal to one concern
-- Keep [Route] files ordered from broad constraints to narrow task context
-- Keep [Route] sequences numbered under `route:`; do not use unordered bullet lists for route steps
+- Keep [Route] files numerically ordered from broad constraints to narrow task context
 - Keep [Atlas] entries short with explicit purpose labels
 - Remove broken, stale, missing, duplicate, or obsolete references
 
