@@ -13,12 +13,12 @@ additional_context_file_types:
     purpose: "Defines an ordered traversal for context replay to rehydrate the agent’s context to a prior state"
     when_to_read: "Read when task setup depends on reviewing context in a specific sequence"
 node: leaf
-scope: exampleRepo/apps/api/src/auth/
-parent: /exampleRepo/apps/api/AGENTS.md
+scope: ExampleRepo/apps/api/src/auth/
+parent: /ExampleRepo/apps/api/AGENTS.md
 children: []
 ---
 
-# exampleRepo/apps/api/src/auth/AGENTS.md
+# ExampleRepo/apps/api/src/auth/AGENTS.md
 
 This leaf node defines context for authentication-specific API work.
 

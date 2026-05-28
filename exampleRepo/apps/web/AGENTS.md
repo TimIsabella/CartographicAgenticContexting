@@ -13,12 +13,12 @@ additional_context_file_types:
     purpose: "Defines an ordered traversal for context replay to rehydrate the agent’s context to a prior state"
     when_to_read: "Read when task setup depends on reviewing context in a specific sequence"
 node: branch
-scope: exampleRepo/apps/web/
-parent: /exampleRepo/AGENTS.md
+scope: ExampleRepo/apps/web/
+parent: /ExampleRepo/AGENTS.md
 children: []
 ---
 
-# exampleRepo/apps/web/AGENTS.md
+# ExampleRepo/apps/web/AGENTS.md
 
 This branch node defines context for web application work.
 
@@ -26,7 +26,7 @@ This branch node defines context for web application work.
 
 - Keep user-facing flows accessible and keyboard navigable.
 - Keep API integration details behind small client request helpers.
-- Prefer reusable UI primitives from `/exampleRepo/packages/ui/AGENTS.md` when adding shared components.
+- Prefer reusable UI primitives from `/ExampleRepo/packages/ui/AGENTS.md` when adding shared components.
 - Avoid exposing internal error details in user-facing messages.
 - Treat authentication and billing state as user-specific data.
 
@@ -34,7 +34,7 @@ This branch node defines context for web application work.
 
 - `index.html` contains the static page structure for account, notes, and billing flows.
 - `src/app.js` wires the browser UI to session, notes, and billing endpoints.
-- `/exampleRepo/packages/ui/components.js` contains reusable browser component helpers that can be copied or imported by web code when needed.
+- `/ExampleRepo/packages/ui/components.js` contains reusable browser component helpers that can be copied or imported by web code when needed.
 
 ## Local validation
 

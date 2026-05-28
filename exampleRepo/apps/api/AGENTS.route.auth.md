@@ -1,17 +1,17 @@
-# exampleRepo/apps/api/AGENTS.route.auth.md
+# ExampleRepo/apps/api/AGENTS.route.auth.md
 
-This Context Route rebuilds the context state needed to safely change authentication, authorization, session handling, and private user state in `exampleRepo/`.
+This Context Route rebuilds the context state needed to safely change authentication, authorization, session handling, and private user state in `ExampleRepo/`.
 
 route:
-  - /exampleRepo/AGENTS.md
-  - /exampleRepo/AGENTS.atlas.md
-  - /exampleRepo/apps/api/AGENTS.md
-  - /exampleRepo/apps/api/AGENTS.map.auth.md
-  - /exampleRepo/apps/api/src/auth/AGENTS.md
-  - /exampleRepo/packages/db/AGENTS.md
-  - /exampleRepo/packages/observability/AGENTS.md
-  - /exampleRepo/apps/web/AGENTS.md
-  - /exampleRepo/package.json
+  - /ExampleRepo/AGENTS.md
+  - /ExampleRepo/AGENTS.atlas.md
+  - /ExampleRepo/apps/api/AGENTS.md
+  - /ExampleRepo/apps/api/AGENTS.map.auth.md
+  - /ExampleRepo/apps/api/src/auth/AGENTS.md
+  - /ExampleRepo/packages/db/AGENTS.md
+  - /ExampleRepo/packages/observability/AGENTS.md
+  - /ExampleRepo/apps/web/AGENTS.md
+  - /ExampleRepo/package.json
 
 ## Route rationale
 

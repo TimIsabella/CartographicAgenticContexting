@@ -13,12 +13,12 @@ additional_context_file_types:
     purpose: "Defines an ordered traversal for context replay to rehydrate the agent’s context to a prior state"
     when_to_read: "Read when task setup depends on reviewing context in a specific sequence"
 node: branch
-scope: exampleRepo/packages/ui/
-parent: /exampleRepo/AGENTS.md
+scope: ExampleRepo/packages/ui/
+parent: /ExampleRepo/AGENTS.md
 children: []
 ---
 
-# exampleRepo/packages/ui/AGENTS.md
+# ExampleRepo/packages/ui/AGENTS.md
 
 This branch node defines context for shared UI package work.
 
