@@ -16,6 +16,8 @@ The goal is to help agents operate with the **smallest sufficient context**: eno
 
 ## Why This Matters
 
+<img width="845" height="592" alt="Cartographed" src="https://github.com/user-attachments/assets/cb4012e8-842d-4101-b67e-f51458219cd8" />
+
 Modern software repositories accumulate context faster than humans or agents can safely consume it. Instructions, architecture notes, validation steps, conventions, examples, exceptions, etc. often end up scattered across files, duplicated across folders, or compressed into one oversized prompt.
 
 By treating the repository as something to be *intentionally* mapped, scoped, indexed, and traversed, this framework helps agents resolve only the context needed for the work at hand.
@@ -265,10 +267,10 @@ Example route content:
 This route rebuilds the context state needed to perform authentication work again.
 
 route:
-  - /AGENTS.md
-  - /apps/api/AGENTS.md
-  - /apps/api/src/auth/AGENTS.md
-  - /packages/db/AGENTS.md
+  1. /AGENTS.md
+  2. /apps/api/AGENTS.md
+  3. /apps/api/src/auth/AGENTS.md
+  4. /packages/db/AGENTS.md
 ```
 
 A route is about *ordered contextual priming*: replaying a useful traversal so an agent can rebuild the context state needed to perform a repeated task, or to return to the same state at a later time.
