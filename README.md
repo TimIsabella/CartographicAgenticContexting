@@ -270,7 +270,7 @@ route:
 1. /AGENTS.md
 2. /apps/api/AGENTS.md
 3. /apps/api/src/auth/AGENTS.md
-4 /packages/db/AGENTS.md
+4. /packages/db/AGENTS.md
 ```
 
 A route is about *ordered contextual priming*: replaying a useful traversal so an agent can rebuild the context state needed to perform a repeated task, or to return to the same state at a later time.
