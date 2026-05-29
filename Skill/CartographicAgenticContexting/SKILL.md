@@ -24,7 +24,11 @@ Scope:
 - AGENTS.route.<name>.md
 - Ordered references for rebuilding a prior context state
 - Reference order matters
-- Route steps use an explicit numeric sequence under `route:`
+- Each route step uses the explicit numeric keys 'read:', 'expected_context:', 'step_reason:', and 'task:'
+- 'read:' a reference to the target file, resource, url, etc. to read
+- 'expected_context:' defines what knowledge should be obtained after reading
+- 'step_reason:' defines why this step exists and why it appears at this position in the sequence
+- 'task:' defines the concrete action/decision to perform using that step's context
 
 [Atlas]:
 - Root AGENTS.atlas.md

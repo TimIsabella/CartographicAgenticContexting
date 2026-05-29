@@ -259,6 +259,15 @@ A route answers:
 > *"Where does the route end?"*  
 > *"What task does this route prepare the agent to perform again?"*  
 
+Each route is comprised of sequential steps, and each step contains the following fields:
+
+- *read*: a reference to the target file, resource, url, etc. to read.
+- *expected_context*: defines what knowledge should be obtained after reading.
+- *step_reason*: defines why this step exists and why it appears at this position in the sequence.
+- *task*: defines the concrete action/decision to perform using that step's context.
+
+The fields in each step provide the agent with the necessary understanding for to accurately and reliably complete a task, as well as to be self auditing for that step.
+
 Example route content:
 
 ```md
@@ -266,11 +275,30 @@ Example route content:
 
 This route rebuilds the context state needed to perform authentication work again.
 
-route:
-  1. /AGENTS.md
-  2. /apps/api/AGENTS.md
-  3. /apps/api/src/auth/AGENTS.md
-  4. /packages/db/AGENTS.md
+route_steps:
+  1:
+    read: /AGENTS.md
+    expected_context: Repository-wide guardrails and context-discovery conventions.
+    step_reason: Start with global constraints before entering narrower subtrees.
+    task: Identify repository-wide rules that govern authentication changes.
+
+  2:
+    read: /apps/api/AGENTS.md
+    expected_context: API-specific scope boundaries and implementation constraints.
+    step_reason: Load API-local constraints before reviewing authentication internals.
+    task: Determine handler, validation, and testing expectations for API auth changes.
+
+  3:
+    read: /apps/api/src/auth/AGENTS.md
+    expected_context: Authentication module rules and local workflow requirements.
+    step_reason: Move from API-wide constraints to auth-module constraints.
+    task: Identify local conventions and constraints specific to auth files.
+
+  4:
+    read: /packages/db/AGENTS.md
+    expected_context: Persistence-layer rules that influence auth storage interactions.
+    step_reason: Confirm data-layer constraints after module-level auth context is loaded.
+    task: Identify storage contracts and invariants that auth changes must preserve.
 ```
 
 A route is about *ordered contextual priming*: replaying a useful traversal so an agent can rebuild the context state needed to perform a repeated task, or to return to the same state at a later time.

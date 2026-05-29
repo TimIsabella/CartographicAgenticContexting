@@ -40,9 +40,14 @@ Context:
 [ValidateRoute]:
 - Purpose states a repeated task or context-state replay target
 - Order moves from broad constraints to narrow execution context
-- Route entries are numbered steps under `route:`
-- Numbered route sequence is contiguous and starts at `1.`
-- Every reference resolves
+- Route entries are numeric step keys under 'route_steps'
+- Numeric step key sequence is contiguous and starts at '1'
+- Each route step includes 'read:', 'expected_context:', 'step_reason:', and 'task:'
+- 'read:' a reference to the target file, resource, url, etc. to read
+- 'expected_context:' defines what knowledge should be obtained after reading
+- 'step_reason:' defines why this step exists and why it appears at this position in the sequence
+- 'task:' defines the concrete action/decision to perform using that step's context
+- Every 'read:' reference resolves
 - Route replay has no missing prerequisite context
 
 [ValidateAtlas]:

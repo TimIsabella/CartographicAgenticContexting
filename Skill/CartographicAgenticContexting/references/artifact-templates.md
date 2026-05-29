@@ -114,10 +114,24 @@ references:
 
 This route rebuilds context state in numeric sequence for <repeated task>.
 
-route:
-  1. /AGENTS.md
-  2. /path/to/broader/context/AGENTS.md
-  3. /path/to/local/task/context/AGENTS.md
+route_steps:
+  1:
+    read: /AGENTS.md
+    expected_context: Repository-wide rules, context-file conventions, and global constraints.
+    step_reason: Load the broadest applicable context before entering narrower subtrees.
+    task: Identify global rules that apply before entering narrower context.
+
+  2:
+    read: /apps/AGENTS.md
+    expected_context: Application-layer boundaries and separation rules for API and web concerns.
+    step_reason: Load the parent application context before selecting a narrower app subtree.
+    task: Determine whether the change belongs in API, web, or shared app context.
+
+  3:
+    read: /apps/api/AGENTS.md
+    expected_context: API-specific implementation boundaries, handler expectations, and validation requirements.
+    step_reason: Load API-local constraints before inspecting implementation files.
+    task: Identify required handler, contract, and test constraints for the requested change.
 ```
 
 [AtlasTemplate]:
@@ -155,7 +169,7 @@ Task:
 2. Use the selected node template as the complete AGENTS.md starting point
 3. Keep Context Key fields and Context Tree metadata in one YAML frontmatter block
 4. Use [MapTemplate] for concern-based reference files
-5. Use [RouteTemplate] for context replay by following files in sequence to achieve a prior context state
+5. Use [RouteTemplate] for context replay by following route steps in numeric sequence to achieve a prior context state
 6. Use [AtlasTemplate] to index available maps and routes
 7. If repository-specific values are provided, replace placeholders and produce repository-specific artifacts
 8. If repository-specific values are not provided, preserve literal blocks and return reusable templates
