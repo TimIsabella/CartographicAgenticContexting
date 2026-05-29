@@ -266,7 +266,7 @@ Each route is comprised of sequential steps, and each step contains the followin
 - *step_reason*: defines why this step exists and why it appears at this position in the sequence.
 - *task*: defines the concrete action/decision to perform using that step's context.
 
-The fields in each step provide the agent with the necessary understanding for to accurately and reliably complete a task, as well as to be self auditing for that step.
+The fields in each step provide the agent with the necessary understanding to accurately and reliably complete a task, as well as to be self auditing for that step.
 
 Example route content:
 
