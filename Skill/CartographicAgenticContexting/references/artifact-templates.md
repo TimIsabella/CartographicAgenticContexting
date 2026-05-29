@@ -117,21 +117,21 @@ This route rebuilds context state in numeric sequence for <repeated task>.
 route_steps:
   1:
     read: /AGENTS.md
-    expected_context: Repository-wide rules, context-file conventions, and global constraints.
-    step_reason: Load the broadest applicable context before entering narrower subtrees.
-    task: Identify global rules that apply before entering narrower context.
+    expected_context: Repository-wide rules, context-file conventions, and global constraints
+    step_reason: Load the broadest applicable context before entering narrower subtrees
+    task: Identify global rules that apply before entering narrower context
 
   2:
     read: /apps/AGENTS.md
-    expected_context: Application-layer boundaries and separation rules for API and web concerns.
-    step_reason: Load the parent application context before selecting a narrower app subtree.
-    task: Determine whether the change belongs in API, web, or shared app context.
+    expected_context: Application-layer boundaries and separation rules for API and web concerns
+    step_reason: Load the parent application context before selecting a narrower app subtree
+    task: Determine whether the change belongs in API, web, or shared app context
 
   3:
     read: /apps/api/AGENTS.md
-    expected_context: API-specific implementation boundaries, handler expectations, and validation requirements.
-    step_reason: Load API-local constraints before inspecting implementation files.
-    task: Identify required handler, contract, and test constraints for the requested change.
+    expected_context: API-specific implementation boundaries, handler expectations, and validation requirements
+    step_reason: Load API-local constraints before inspecting implementation files
+    task: Identify required handler, contract, and test constraints for the requested change
 ```
 
 [AtlasTemplate]:
